@@ -1,4 +1,4 @@
 # Recorded model responses
 
-Filled by `pnpm ai:record` with the raw text of real Gemini answers, one JSON file per sample.
-Empty until the first recording run. Do not edit or add files here by hand.
+Real answers from `gemini-3.6-flash`, one JSON file per sample quote, saved by `pnpm ai:record`.
+Demo mode replays them, and `pnpm ai:eval --recorded` scores them. Do not edit or add files here by hand.

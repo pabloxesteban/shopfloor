@@ -1,0 +1,8 @@
+{
+  "sampleId": "herrajes-calandria-note",
+  "model": "gemini-3.6-flash",
+  "recordedAt": "2026-11-25T20:43:40.156Z",
+  "responses": [
+    "{\n  \"supplier\": {\n    \"value\": \"Herrajes Calandria S.A.\",\n    \"confidence\": 0.98\n  },\n  \"quoteNumber\": {\n    \"value\": \"R-118\",\n    \"confidence\": 0.95\n  },\n  \"date\": {\n    \"value\": \"2026-11-14\",\n    \"confidence\": 0.95\n  },\n  \"currency\": {\n    \"value\": \"ARS\",\n    \"confidence\": 0.98\n  },\n  \"lines\": [\n    {\n      \"description\": {\n        \"value\": \"rodamientos corrediza (par)\",\n        \"confidence\": 0.95\n      },\n      \"sku\": {\n        \"value\": \"HDW-RLR-02\",\n        \"confidence\": 0.98\n      },\n      \"quantity\": {\n        \"value\": 80,\n        \"confidence\": 0.98\n      },\n      \"unit\": {\n        \"value\": \"unit\",\n        \"confidence\": 0.98\n      },\n      \"unitPrice\": {\n        \"value\": 3850.00,\n        \"confidence\": 0.98\n      }\n    },\n    {\n      \"description\": {\n        \"value\": \"cerradura multipunto\",\n        \"confidence\": 0.95\n      },\n      \"sku\": {\n        \"value\": \"HDW-LCK-MP\",\n        \"confidence\": 0.98\n      },\n      \"quantity\": {\n        \"value\": 6,\n        \"confidence\": 0.98\n      },\n      \"unit\": {\n        \"value\": \"unit\",\n        \"confidence\": 0.98\n      },\n      \"unitPrice\": {\n        \"value\": 96500.00,\n        \"confidence\": 0.98\n      }\n    }\n  ],\n  \"total\": {\n    \"value\": 887000.00,\n    \"confidence\": 0.99\n  }\n}"
+  ]
+}

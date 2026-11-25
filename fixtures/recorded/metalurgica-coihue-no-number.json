@@ -1,0 +1,8 @@
+{
+  "sampleId": "metalurgica-coihue-no-number",
+  "model": "gemini-3.6-flash",
+  "recordedAt": "2026-11-25T20:40:35.512Z",
+  "responses": [
+    "{\"supplier\":{\"value\":\"Metalúrgica Coihue\",\"confidence\":0.99},\"quoteNumber\":{\"value\":null,\"confidence\":0.95},\"date\":{\"value\":\"2026-11-18\",\"confidence\":0.99},\"currency\":{\"value\":\"ARS\",\"confidence\":0.99},\"lines\":[{\"description\":{\"value\":\"Marco A30 con ruptura de puente térmico\",\"confidence\":0.98},\"sku\":{\"value\":\"PRF-A30-301\",\"confidence\":0.99},\"quantity\":{\"value\":14,\"confidence\":0.99},\"unit\":{\"value\":\"bar-6m\",\"confidence\":0.99},\"unitPrice\":{\"value\":88600.0,\"confidence\":0.99}},{\"description\":{\"value\":\"Hoja oscilobatiente A30\",\"confidence\":0.98},\"sku\":{\"value\":\"PRF-A30-302\",\"confidence\":0.99},\"quantity\":{\"value\":14,\"confidence\":0.99},\"unit\":{\"value\":\"bar-6m\",\"confidence\":0.99},\"unitPrice\":{\"value\":92150.0,\"confidence\":0.99}}],\"total\":{\"value\":2530500.0,\"confidence\":0.99}}"
+  ]
+}

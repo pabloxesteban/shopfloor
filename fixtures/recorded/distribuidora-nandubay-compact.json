@@ -1,0 +1,8 @@
+{
+  "sampleId": "distribuidora-nandubay-compact",
+  "model": "gemini-3.6-flash",
+  "recordedAt": "2026-11-25T20:39:59.231Z",
+  "responses": [
+    "{\"supplier\":{\"value\":\"Distribuidora Ñandubay\",\"confidence\":0.99},\"quoteNumber\":{\"value\":\"N-10294\",\"confidence\":0.99},\"date\":{\"value\":\"2026-11-13\",\"confidence\":0.99},\"currency\":{\"value\":\"ARS\",\"confidence\":0.99},\"lines\":[{\"description\":{\"value\":\"Burlete EPDM, rollo 50 m\",\"confidence\":0.99},\"sku\":{\"value\":\"HDW-SEA-EPDM\",\"confidence\":0.99},\"quantity\":{\"value\":8.0,\"confidence\":0.99},\"unit\":{\"value\":\"unit\",\"confidence\":0.99},\"unitPrice\":{\"value\":24900.0,\"confidence\":0.99}},{\"description\":{\"value\":\"Felpa, rollo 50 m\",\"confidence\":0.99},\"sku\":{\"value\":\"HDW-BRU-50\",\"confidence\":0.99},\"quantity\":{\"value\":8.0,\"confidence\":0.99},\"unit\":{\"value\":\"unit\",\"confidence\":0.99},\"unitPrice\":{\"value\":19750.0,\"confidence\":0.99}},{\"description\":{\"value\":\"Escuadra de armado reforzada\",\"confidence\":0.99},\"sku\":{\"value\":\"NDB-4471\",\"confidence\":0.99},\"quantity\":{\"value\":200.0,\"confidence\":0.99},\"unit\":{\"value\":\"unit\",\"confidence\":0.99},\"unitPrice\":{\"value\":1120.0,\"confidence\":0.99}},{\"description\":{\"value\":\"Marco de abrir Herrero, barra 6 m\",\"confidence\":0.99},\"sku\":{\"value\":\"PRF-HER-210\",\"confidence\":0.99},\"quantity\":{\"value\":16.0,\"confidence\":0.99},\"unit\":{\"value\":\"bar-6m\",\"confidence\":0.99},\"unitPrice\":{\"value\":29400.0,\"confidence\":0.99}}],\"total\":{\"value\":1051600.0,\"confidence\":0.99}}"
+  ]
+}

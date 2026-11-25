@@ -1,0 +1,8 @@
+{
+  "sampleId": "importadora-lapacho-usd",
+  "model": "gemini-3.6-flash",
+  "recordedAt": "2026-11-25T20:37:05.860Z",
+  "responses": [
+    "{\"supplier\":{\"value\":\"Importadora Lapacho S.A.\",\"confidence\":0.99},\"quoteNumber\":{\"value\":\"IL-7731\",\"confidence\":0.99},\"date\":{\"value\":\"2026-11-09\",\"confidence\":0.99},\"currency\":{\"value\":\"USD\",\"confidence\":0.99},\"lines\":[{\"description\":{\"value\":\"Tilt and turn hardware kit, up to 130 kg\",\"confidence\":0.99},\"sku\":{\"value\":\"HDW-TT-KIT\",\"confidence\":0.99},\"quantity\":{\"value\":25,\"confidence\":0.99},\"unit\":{\"value\":\"unit\",\"confidence\":0.99},\"unitPrice\":{\"value\":86.4,\"confidence\":0.99}},{\"description\":{\"value\":\"Multipoint lock for aluminum doors\",\"confidence\":0.99},\"sku\":{\"value\":\"HDW-LCK-MP\",\"confidence\":0.99},\"quantity\":{\"value\":15,\"confidence\":0.99},\"unit\":{\"value\":\"unit\",\"confidence\":0.99},\"unitPrice\":{\"value\":142.75,\"confidence\":0.99}},{\"description\":{\"value\":\"Door handle set, satin finish\",\"confidence\":0.99},\"sku\":{\"value\":\"HDW-HDL-DR\",\"confidence\":0.99},\"quantity\":{\"value\":15,\"confidence\":0.99},\"unit\":{\"value\":\"unit\",\"confidence\":0.99},\"unitPrice\":{\"value\":38.9,\"confidence\":0.99}}],\"total\":{\"value\":4884.75,\"confidence\":0.99}}"
+  ]
+}

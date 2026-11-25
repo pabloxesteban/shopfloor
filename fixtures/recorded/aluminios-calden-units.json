@@ -1,0 +1,8 @@
+{
+  "sampleId": "aluminios-calden-units",
+  "model": "gemini-3.6-flash",
+  "recordedAt": "2026-11-25T20:45:19.232Z",
+  "responses": [
+    "{\"supplier\":{\"value\":\"Aluminios Caldén Sur\",\"confidence\":0.99},\"quoteNumber\":{\"value\":\"CS-3381\",\"confidence\":0.99},\"date\":{\"value\":\"2026-11-15\",\"confidence\":0.99},\"currency\":{\"value\":\"ARS\",\"confidence\":0.99},\"lines\":[{\"description\":{\"value\":\"Hoja corrediza Herrero, barra 6 m\",\"confidence\":0.99},\"sku\":{\"value\":\"PRF-HER-202\",\"confidence\":0.99},\"quantity\":{\"value\":20,\"confidence\":0.99},\"unit\":{\"value\":\"bar-6m\",\"confidence\":0.99},\"unitPrice\":{\"value\":27300,\"confidence\":0.99}},{\"description\":{\"value\":\"Contravidrio Herrero cortado 1,20 m\",\"confidence\":0.99},\"sku\":{\"value\":\"PRF-HER-215\",\"confidence\":0.99},\"quantity\":{\"value\":60,\"confidence\":0.99},\"unit\":{\"value\":\"unit\",\"confidence\":0.99},\"unitPrice\":{\"value\":2480,\"confidence\":0.99}}],\"total\":{\"value\":694800,\"confidence\":0.99}}"
+  ]
+}

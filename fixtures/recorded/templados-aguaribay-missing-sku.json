@@ -1,0 +1,8 @@
+{
+  "sampleId": "templados-aguaribay-missing-sku",
+  "model": "gemini-3.6-flash",
+  "recordedAt": "2026-11-25T20:38:57.472Z",
+  "responses": [
+    "{\"supplier\":{\"value\":\"Templados Aguaribay\",\"confidence\":0.99},\"quoteNumber\":{\"value\":\"TA-552\",\"confidence\":0.99},\"date\":{\"value\":\"2026-11-11\",\"confidence\":0.99},\"currency\":{\"value\":\"ARS\",\"confidence\":0.99},\"lines\":[{\"description\":{\"value\":\"Laminado 4+4 incoloro\",\"confidence\":0.99},\"sku\":{\"value\":\"GLS-LAM-44\",\"confidence\":0.99},\"quantity\":{\"value\":12,\"confidence\":0.99},\"unit\":{\"value\":\"m2\",\"confidence\":0.99},\"unitPrice\":{\"value\":74200,\"confidence\":0.99}},{\"description\":{\"value\":\"Templado 10 mm para mampara, a medida\",\"confidence\":0.99},\"sku\":{\"value\":null,\"confidence\":0.99},\"quantity\":{\"value\":3.6,\"confidence\":0.99},\"unit\":{\"value\":\"m2\",\"confidence\":0.99},\"unitPrice\":{\"value\":138000,\"confidence\":0.99}},{\"description\":{\"value\":\"Float 6 mm incoloro\",\"confidence\":0.99},\"sku\":{\"value\":\"GLS-FLT-6\",\"confidence\":0.99},\"quantity\":{\"value\":15,\"confidence\":0.99},\"unit\":{\"value\":\"m2\",\"confidence\":0.99},\"unitPrice\":{\"value\":32700,\"confidence\":0.99}}],\"total\":{\"value\":1877700,\"confidence\":0.99}}"
+  ]
+}

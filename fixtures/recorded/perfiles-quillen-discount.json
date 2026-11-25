@@ -1,0 +1,8 @@
+{
+  "sampleId": "perfiles-quillen-discount",
+  "model": "gemini-3.6-flash",
+  "recordedAt": "2026-11-25T20:38:19.280Z",
+  "responses": [
+    "{\"supplier\":{\"value\":\"Perfiles Quillén S.R.L.\",\"confidence\":0.99},\"quoteNumber\":{\"value\":\"P-00431\",\"confidence\":0.99},\"date\":{\"value\":\"2026-11-16\",\"confidence\":0.99},\"currency\":{\"value\":\"ARS\",\"confidence\":0.99},\"lines\":[{\"description\":{\"value\":\"Hoja de abrir Modena, barra 6 m\",\"confidence\":0.99},\"sku\":{\"value\":\"PRF-MOD-111\",\"confidence\":0.99},\"quantity\":{\"value\":20,\"confidence\":0.99},\"unit\":{\"value\":\"bar-6m\",\"confidence\":0.99},\"unitPrice\":{\"value\":46800,\"confidence\":0.99}},{\"description\":{\"value\":\"Hoja de puerta Modena, barra 6 m\",\"confidence\":0.99},\"sku\":{\"value\":\"PRF-MOD-120\",\"confidence\":0.99},\"quantity\":{\"value\":10,\"confidence\":0.99},\"unit\":{\"value\":\"bar-6m\",\"confidence\":0.99},\"unitPrice\":{\"value\":62300,\"confidence\":0.99}},{\"description\":{\"value\":\"Descuento comercial 5%\",\"confidence\":0.99},\"sku\":{\"value\":null,\"confidence\":0.99},\"quantity\":{\"value\":1,\"confidence\":0.99},\"unit\":{\"value\":\"unit\",\"confidence\":0.99},\"unitPrice\":{\"value\":-77950,\"confidence\":0.99}}],\"total\":{\"value\":1481050,\"confidence\":0.99}}"
+  ]
+}

@@ -1,0 +1,2288 @@
+{
+  "model": "gemini-3.6-flash (from recordings)",
+  "runAt": "2026-11-25T20:45:25.488Z",
+  "overall": {
+    "correct": 306,
+    "total": 307,
+    "accuracy": 0.996742671009772
+  },
+  "fields": [
+    {
+      "field": "supplier",
+      "correct": 11,
+      "total": 12,
+      "accuracy": 0.9166666666666666
+    },
+    {
+      "field": "quoteNumber",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1
+    },
+    {
+      "field": "date",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1
+    },
+    {
+      "field": "currency",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1
+    },
+    {
+      "field": "total",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1
+    },
+    {
+      "field": "lineCount",
+      "correct": 12,
+      "total": 12,
+      "accuracy": 1
+    },
+    {
+      "field": "lines.description",
+      "correct": 47,
+      "total": 47,
+      "accuracy": 1
+    },
+    {
+      "field": "lines.sku",
+      "correct": 47,
+      "total": 47,
+      "accuracy": 1
+    },
+    {
+      "field": "lines.quantity",
+      "correct": 47,
+      "total": 47,
+      "accuracy": 1
+    },
+    {
+      "field": "lines.unit",
+      "correct": 47,
+      "total": 47,
+      "accuracy": 1
+    },
+    {
+      "field": "lines.unitPrice",
+      "correct": 47,
+      "total": 47,
+      "accuracy": 1
+    }
+  ],
+  "scores": [
+    {
+      "sampleId": "perfiles-quillen-table",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Perfiles Quillén S.R.L.",
+          "actual": "Perfiles Quillén S.R.L.",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "P-00412",
+          "actual": "P-00412",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-10",
+          "actual": "2026-11-10",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 3643455,
+          "actual": 3643455,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 5,
+          "actual": 5,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Marco corredizo Modena, barra 6 m",
+          "actual": "Marco corredizo Modena, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "PRF-MOD-101",
+          "actual": "PRF-MOD-101",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 24,
+          "actual": 24,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 48350,
+          "actual": 48350,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Hoja corrediza Modena, barra 6 m",
+          "actual": "Hoja corrediza Modena, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "PRF-MOD-102",
+          "actual": "PRF-MOD-102",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 24,
+          "actual": 24,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 41900,
+          "actual": 41900,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "Marco de abrir Modena, barra 6 m",
+          "actual": "Marco de abrir Modena, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": "PRF-MOD-110",
+          "actual": "PRF-MOD-110",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 12,
+          "actual": 12,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": 45120,
+          "actual": 45120,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.3.description",
+          "expected": "Contravidrio Herrero, barra 6 m",
+          "actual": "Contravidrio Herrero, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.3.sku",
+          "expected": "PRF-HER-215",
+          "actual": "PRF-HER-215",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.3.quantity",
+          "expected": 30,
+          "actual": 30,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.3.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.3.unitPrice",
+          "expected": 12480.5,
+          "actual": 12480.5,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.4.description",
+          "expected": "Marco corredizo Herrero, barra 6 m",
+          "actual": "Marco corredizo Herrero, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.4.sku",
+          "expected": "PRF-HER-201",
+          "actual": "PRF-HER-201",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.4.quantity",
+          "expected": 18,
+          "actual": 18,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.4.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.4.unitPrice",
+          "expected": 31200,
+          "actual": 31200,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "vidrieria-tres-lomas-list",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Vidriería Tres Lomas",
+          "actual": "Vidriería Tres Lomas",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "VT-2026-1187",
+          "actual": "VT-2026-1187",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-12",
+          "actual": "2026-11-12",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 2781635,
+          "actual": 2781635,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 4,
+          "actual": 4,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Laminado 3+3 incoloro",
+          "actual": "Laminado 3+3 incoloro",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "GLS-LAM-33",
+          "actual": "GLS-LAM-33",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 18.5,
+          "actual": 18.5,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 58900,
+          "actual": 58900,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Float 4 mm incoloro",
+          "actual": "Float 4 mm incoloro",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "GLS-FLT-4",
+          "actual": "GLS-FLT-4",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 22,
+          "actual": 22,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 21450,
+          "actual": 21450,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "DVH 4/12/4",
+          "actual": "DVH 4/12/4",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": "GLS-DVH-4-12-4",
+          "actual": "GLS-DVH-4-12-4",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 9.75,
+          "actual": 9.75,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": 112300,
+          "actual": 112300,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.3.description",
+          "expected": "Esmerilado 4 mm",
+          "actual": "Esmerilado 4 mm",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.3.sku",
+          "expected": "GLS-FRO-4",
+          "actual": "GLS-FRO-4",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.3.quantity",
+          "expected": 4.2,
+          "actual": 4.2,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.3.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.3.unitPrice",
+          "expected": 29800,
+          "actual": 29800,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "herrajes-calandria-typewriter",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Herrajes Calandria S.A.",
+          "actual": "HERRAJES CALANDRIA S.A.",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "0003-00018822",
+          "actual": "0003-00018822",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-04",
+          "actual": "2026-11-04",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 1890840,
+          "actual": 1890840,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 6,
+          "actual": 6,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Par de rodamientos para corrediza",
+          "actual": "PAR DE RODAMIENTOS PARA CORREDIZA",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "HDW-RLR-02",
+          "actual": "HDW-RLR-02",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 120,
+          "actual": 120,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 3850,
+          "actual": 3850,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Cierre para ventana corrediza",
+          "actual": "CIERRE PARA VENTANA CORREDIZA",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "HDW-LCK-SL",
+          "actual": "HDW-LCK-SL",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 60,
+          "actual": 60,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 4720,
+          "actual": 4720,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "Manija para ventana de abrir",
+          "actual": "MANIJA PARA VENTANA DE ABRIR",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": "HDW-HDL-CS",
+          "actual": "HDW-HDL-CS",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 40,
+          "actual": 40,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": 6390,
+          "actual": 6390,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.3.description",
+          "expected": "Bisagra de tres partes",
+          "actual": "BISAGRA DE TRES PARTES",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.3.sku",
+          "expected": "HDW-HNG-03",
+          "actual": "HDW-HNG-03",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.3.quantity",
+          "expected": 150,
+          "actual": 150,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.3.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.3.unitPrice",
+          "expected": 2140,
+          "actual": 2140,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.4.description",
+          "expected": "Silicona neutra, cartucho",
+          "actual": "SILICONA NEUTRA, CARTUCHO",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.4.sku",
+          "expected": "HDW-SIL-NT",
+          "actual": "HDW-SIL-NT",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.4.quantity",
+          "expected": 48,
+          "actual": 48,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.4.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.4.unitPrice",
+          "expected": 7980,
+          "actual": 7980,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.5.description",
+          "expected": "Tornillos inoxidables, caja x500",
+          "actual": "TORNILLOS INOXIDABLES, CAJA X500",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.5.sku",
+          "expected": "HDW-SCR-BOX",
+          "actual": "HDW-SCR-BOX",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.5.quantity",
+          "expected": 10,
+          "actual": 10,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.5.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.5.unitPrice",
+          "expected": 18600,
+          "actual": 18600,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "importadora-lapacho-usd",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Importadora Lapacho S.A.",
+          "actual": "Importadora Lapacho S.A.",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "IL-7731",
+          "actual": "IL-7731",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-09",
+          "actual": "2026-11-09",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "USD",
+          "actual": "USD",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 4884.75,
+          "actual": 4884.75,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 3,
+          "actual": 3,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Tilt and turn hardware kit, up to 130 kg",
+          "actual": "Tilt and turn hardware kit, up to 130 kg",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "HDW-TT-KIT",
+          "actual": "HDW-TT-KIT",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 25,
+          "actual": 25,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 86.4,
+          "actual": 86.4,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Multipoint lock for aluminum doors",
+          "actual": "Multipoint lock for aluminum doors",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "HDW-LCK-MP",
+          "actual": "HDW-LCK-MP",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 15,
+          "actual": 15,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 142.75,
+          "actual": 142.75,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "Door handle set, satin finish",
+          "actual": "Door handle set, satin finish",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": "HDW-HDL-DR",
+          "actual": "HDW-HDL-DR",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 15,
+          "actual": 15,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": 38.9,
+          "actual": 38.9,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "perfiles-quillen-discount",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Perfiles Quillén S.R.L.",
+          "actual": "Perfiles Quillén S.R.L.",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "P-00431",
+          "actual": "P-00431",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-16",
+          "actual": "2026-11-16",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 1481050,
+          "actual": 1481050,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 3,
+          "actual": 3,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Hoja de abrir Modena, barra 6 m",
+          "actual": "Hoja de abrir Modena, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "PRF-MOD-111",
+          "actual": "PRF-MOD-111",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 20,
+          "actual": 20,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 46800,
+          "actual": 46800,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Hoja de puerta Modena, barra 6 m",
+          "actual": "Hoja de puerta Modena, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "PRF-MOD-120",
+          "actual": "PRF-MOD-120",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 10,
+          "actual": 10,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 62300,
+          "actual": 62300,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "Descuento comercial 5%",
+          "actual": "Descuento comercial 5%",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 1,
+          "actual": 1,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": -77950,
+          "actual": -77950,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "templados-aguaribay-missing-sku",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Templados Aguaribay",
+          "actual": "Templados Aguaribay",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "TA-552",
+          "actual": "TA-552",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-11",
+          "actual": "2026-11-11",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 1877700,
+          "actual": 1877700,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 3,
+          "actual": 3,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Laminado 4+4 incoloro",
+          "actual": "Laminado 4+4 incoloro",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "GLS-LAM-44",
+          "actual": "GLS-LAM-44",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 12,
+          "actual": 12,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 74200,
+          "actual": 74200,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Templado 10 mm para mampara, a medida",
+          "actual": "Templado 10 mm para mampara, a medida",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 3.6,
+          "actual": 3.6,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 138000,
+          "actual": 138000,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "Float 6 mm incoloro",
+          "actual": "Float 6 mm incoloro",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": "GLS-FLT-6",
+          "actual": "GLS-FLT-6",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 15,
+          "actual": 15,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": 32700,
+          "actual": 32700,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "distribuidora-nandubay-compact",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Distribuidora Ñandubay",
+          "actual": "Distribuidora Ñandubay",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "N-10294",
+          "actual": "N-10294",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-13",
+          "actual": "2026-11-13",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 1051600,
+          "actual": 1051600,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 4,
+          "actual": 4,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Burlete EPDM, rollo 50 m",
+          "actual": "Burlete EPDM, rollo 50 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "HDW-SEA-EPDM",
+          "actual": "HDW-SEA-EPDM",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 8,
+          "actual": 8,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 24900,
+          "actual": 24900,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Felpa, rollo 50 m",
+          "actual": "Felpa, rollo 50 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "HDW-BRU-50",
+          "actual": "HDW-BRU-50",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 8,
+          "actual": 8,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 19750,
+          "actual": 19750,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "Escuadra de armado reforzada",
+          "actual": "Escuadra de armado reforzada",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": "NDB-4471",
+          "actual": "NDB-4471",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 200,
+          "actual": 200,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": 1120,
+          "actual": 1120,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.3.description",
+          "expected": "Marco de abrir Herrero, barra 6 m",
+          "actual": "Marco de abrir Herrero, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.3.sku",
+          "expected": "PRF-HER-210",
+          "actual": "PRF-HER-210",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.3.quantity",
+          "expected": 16,
+          "actual": 16,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.3.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.3.unitPrice",
+          "expected": 29400,
+          "actual": 29400,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "metalurgica-coihue-no-number",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Metalúrgica Coihue",
+          "actual": "Metalúrgica Coihue",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": null,
+          "actual": null,
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-18",
+          "actual": "2026-11-18",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 2530500,
+          "actual": 2530500,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 2,
+          "actual": 2,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Marco A30 con ruptura de puente térmico",
+          "actual": "Marco A30 con ruptura de puente térmico",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "PRF-A30-301",
+          "actual": "PRF-A30-301",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 14,
+          "actual": 14,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 88600,
+          "actual": 88600,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Hoja oscilobatiente A30",
+          "actual": "Hoja oscilobatiente A30",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "PRF-A30-302",
+          "actual": "PRF-A30-302",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 14,
+          "actual": 14,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 92150,
+          "actual": 92150,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "vidrieria-tres-lomas-long",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Vidriería Tres Lomas",
+          "actual": "Vidrier%C3%A1 Tres Lomas",
+          "match": false
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "VT-2026-1203",
+          "actual": "VT-2026-1203",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-17",
+          "actual": "2026-11-17",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 7231350,
+          "actual": 7231350,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 10,
+          "actual": 10,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Laminado 3+3 incoloro",
+          "actual": "Laminado 3+3 incoloro",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "GLS-LAM-33",
+          "actual": "GLS-LAM-33",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 30,
+          "actual": 30,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 58900,
+          "actual": 58900,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Laminado 4+4 incoloro",
+          "actual": "Laminado 4+4 incoloro",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "GLS-LAM-44",
+          "actual": "GLS-LAM-44",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 10,
+          "actual": 10,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 74200,
+          "actual": 74200,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "Float 4 mm incoloro",
+          "actual": "Float 4 mm incoloro",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": "GLS-FLT-4",
+          "actual": "GLS-FLT-4",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 40,
+          "actual": 40,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": 21450,
+          "actual": 21450,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.3.description",
+          "expected": "Float 6 mm incoloro",
+          "actual": "Float 6 mm incoloro",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.3.sku",
+          "expected": "GLS-FLT-6",
+          "actual": "GLS-FLT-6",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.3.quantity",
+          "expected": 12,
+          "actual": 12,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.3.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.3.unitPrice",
+          "expected": 32700,
+          "actual": 32700,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.4.description",
+          "expected": "DVH 4/12/4",
+          "actual": "DVH 4/12/4",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.4.sku",
+          "expected": "GLS-DVH-4-12-4",
+          "actual": "GLS-DVH-4-12-4",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.4.quantity",
+          "expected": 16.5,
+          "actual": 16.5,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.4.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.4.unitPrice",
+          "expected": 112300,
+          "actual": 112300,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.5.description",
+          "expected": "DVH con laminado 3+3",
+          "actual": "DVH con laminado 3+3",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.5.sku",
+          "expected": "GLS-DVH-LAM",
+          "actual": "GLS-DVH-LAM",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.5.quantity",
+          "expected": 8,
+          "actual": 8,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.5.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.5.unitPrice",
+          "expected": 139900,
+          "actual": 139900,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.6.description",
+          "expected": "Esmerilado 4 mm",
+          "actual": "Esmerilado 4 mm",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.6.sku",
+          "expected": "GLS-FRO-4",
+          "actual": "GLS-FRO-4",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.6.quantity",
+          "expected": 6,
+          "actual": 6,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.6.unit",
+          "expected": "m2",
+          "actual": "m2",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.6.unitPrice",
+          "expected": 29800,
+          "actual": 29800,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.7.description",
+          "expected": "Silicona neutra, cartucho",
+          "actual": "Silicona neutra, cartucho",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.7.sku",
+          "expected": "HDW-SIL-NT",
+          "actual": "HDW-SIL-NT",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.7.quantity",
+          "expected": 24,
+          "actual": 24,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.7.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.7.unitPrice",
+          "expected": 7650,
+          "actual": 7650,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.8.description",
+          "expected": "Burlete EPDM, rollo 50 m",
+          "actual": "Burlete EPDM, rollo 50 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.8.sku",
+          "expected": "HDW-SEA-EPDM",
+          "actual": "HDW-SEA-EPDM",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.8.quantity",
+          "expected": 4,
+          "actual": 4,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.8.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.8.unitPrice",
+          "expected": 25300,
+          "actual": 25300,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.9.description",
+          "expected": "Tornillos inoxidables, caja x500",
+          "actual": "Tornillos inoxidables, caja x500",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.9.sku",
+          "expected": "HDW-SCR-BOX",
+          "actual": "HDW-SCR-BOX",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.9.quantity",
+          "expected": 2,
+          "actual": 2,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.9.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.9.unitPrice",
+          "expected": 18100,
+          "actual": 18100,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "perfiles-quillen-a30",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Perfiles Quillén S.R.L.",
+          "actual": "Perfiles Quillén S.R.L.",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "P-00436",
+          "actual": "P-00436",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-17",
+          "actual": "2026-11-17",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 2418500,
+          "actual": 2418500,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 3,
+          "actual": 3,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Marco A30 RPT, barra 6 m",
+          "actual": "Marco A30 RPT, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "PRF-A30-301",
+          "actual": "PRF-A30-301",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 10,
+          "actual": 10,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 87900,
+          "actual": 87900,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Hoja oscilobatiente A30, barra 6 m",
+          "actual": "Hoja oscilobatiente A30, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "PRF-A30-302",
+          "actual": "PRF-A30-302",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 10,
+          "actual": 10,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 91400,
+          "actual": 91400,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.2.description",
+          "expected": "Marco de puerta A30, barra 6 m",
+          "actual": "Marco de puerta A30, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.2.sku",
+          "expected": "PRF-A30-310",
+          "actual": "PRF-A30-310",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.2.quantity",
+          "expected": 6,
+          "actual": 6,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.2.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.2.unitPrice",
+          "expected": 104250,
+          "actual": 104250,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "herrajes-calandria-note",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Herrajes Calandria S.A.",
+          "actual": "Herrajes Calandria S.A.",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "R-118",
+          "actual": "R-118",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-14",
+          "actual": "2026-11-14",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 887000,
+          "actual": 887000,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 2,
+          "actual": 2,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Rodamientos corrediza (par)",
+          "actual": "rodamientos corrediza (par)",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "HDW-RLR-02",
+          "actual": "HDW-RLR-02",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 80,
+          "actual": 80,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 3850,
+          "actual": 3850,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Cerradura multipunto",
+          "actual": "cerradura multipunto",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "HDW-LCK-MP",
+          "actual": "HDW-LCK-MP",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 6,
+          "actual": 6,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 96500,
+          "actual": 96500,
+          "match": true
+        }
+      ]
+    },
+    {
+      "sampleId": "aluminios-calden-units",
+      "checks": [
+        {
+          "field": "supplier",
+          "path": "supplier",
+          "expected": "Aluminios Caldén Sur",
+          "actual": "Aluminios Caldén Sur",
+          "match": true
+        },
+        {
+          "field": "quoteNumber",
+          "path": "quoteNumber",
+          "expected": "CS-3381",
+          "actual": "CS-3381",
+          "match": true
+        },
+        {
+          "field": "date",
+          "path": "date",
+          "expected": "2026-11-15",
+          "actual": "2026-11-15",
+          "match": true
+        },
+        {
+          "field": "currency",
+          "path": "currency",
+          "expected": "ARS",
+          "actual": "ARS",
+          "match": true
+        },
+        {
+          "field": "total",
+          "path": "total",
+          "expected": 694800,
+          "actual": 694800,
+          "match": true
+        },
+        {
+          "field": "lineCount",
+          "path": "lines.length",
+          "expected": 2,
+          "actual": 2,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.0.description",
+          "expected": "Hoja corrediza Herrero, barra 6 m",
+          "actual": "Hoja corrediza Herrero, barra 6 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.0.sku",
+          "expected": "PRF-HER-202",
+          "actual": "PRF-HER-202",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.0.quantity",
+          "expected": 20,
+          "actual": 20,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.0.unit",
+          "expected": "bar-6m",
+          "actual": "bar-6m",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.0.unitPrice",
+          "expected": 27300,
+          "actual": 27300,
+          "match": true
+        },
+        {
+          "field": "lines.description",
+          "path": "lines.1.description",
+          "expected": "Contravidrio Herrero cortado 1,20 m",
+          "actual": "Contravidrio Herrero cortado 1,20 m",
+          "match": true
+        },
+        {
+          "field": "lines.sku",
+          "path": "lines.1.sku",
+          "expected": "PRF-HER-215",
+          "actual": "PRF-HER-215",
+          "match": true
+        },
+        {
+          "field": "lines.quantity",
+          "path": "lines.1.quantity",
+          "expected": 60,
+          "actual": 60,
+          "match": true
+        },
+        {
+          "field": "lines.unit",
+          "path": "lines.1.unit",
+          "expected": "unit",
+          "actual": "unit",
+          "match": true
+        },
+        {
+          "field": "lines.unitPrice",
+          "path": "lines.1.unitPrice",
+          "expected": 2480,
+          "actual": 2480,
+          "match": true
+        }
+      ]
+    }
+  ]
+}
