@@ -17,10 +17,13 @@ for (const scheme of ["light", "dark"] as const) {
   });
 }
 
-test("the orders page fits a 360 px screen without page-level horizontal scroll", async ({ page }) => {
-  await page.setViewportSize({ width: 360, height: 800 });
-  await page.goto("/orders");
-  await expect(page.getByRole("table", { name: /^Orders, / })).toBeVisible();
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-  expect(overflow).toBeLessThanOrEqual(0);
-});
+for (const path of pages) {
+  test(`${path} fits a 360 px screen without page-level horizontal scroll`, async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 800 });
+    await page.goto(path);
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await page.waitForLoadState("networkidle");
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
+}

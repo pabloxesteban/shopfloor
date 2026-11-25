@@ -21,13 +21,19 @@ async function ImportWorkspace() {
   );
   return (
     <>
-      <div className="mb-4">
+      <p className="mb-4 flex flex-wrap items-center gap-2 text-sm text-muted">
         {live ? (
-          <Badge tone="accent">Live extraction with Gemini</Badge>
+          <>
+            <Badge tone="accent">Live extraction</Badge>
+            Quotes are read with Gemini on the server.
+          </>
         ) : (
-          <Badge>Demo mode · no API key on this server, recorded responses only</Badge>
+          <>
+            <Badge>Demo mode</Badge>
+            No API key on this server, so only recorded responses can be used.
+          </>
         )}
-      </div>
+      </p>
       <ImportFlow live={live} samples={samples} />
     </>
   );

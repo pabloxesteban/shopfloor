@@ -42,8 +42,8 @@ async function OrderDetail({ params }: { params: PageProps<"/orders/[id]">["para
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="space-y-6 lg:col-span-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="min-w-0 space-y-6 lg:col-span-2">
           <Card aria-labelledby="items-title">
             <CardHeader id="items-title" title="Items" description="Prices are computed from size, series and glass." />
             <ItemsTable items={order.items} />
@@ -72,7 +72,7 @@ async function OrderDetail({ params }: { params: PageProps<"/orders/[id]">["para
           </Card>
         </div>
 
-        <div className="space-y-6">
+        <div className="min-w-0 space-y-6">
           <Card aria-labelledby="status-title">
             <CardHeader id="status-title" title="Status" description="Quote, confirmed, in production, ready, delivered." />
             <div className="px-4 py-4 sm:px-5">
@@ -104,7 +104,7 @@ function DetailSkeleton() {
     <div aria-busy="true" aria-label="Loading order">
       <Skeleton className="mb-2 h-4 w-24" />
       <Skeleton className="mb-6 h-8 w-64" />
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <Skeleton className="h-96 rounded-lg lg:col-span-2" />
         <Skeleton className="h-64 rounded-lg" />
       </div>

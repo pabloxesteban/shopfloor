@@ -27,8 +27,8 @@ export function SourcePicker({ live, samples, action, pending, state }: SourcePi
         </div>
       ) : null}
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <Card aria-labelledby="samples-title" className="lg:col-span-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <Card aria-labelledby="samples-title" className="min-w-0 lg:col-span-2">
           <CardHeader
             id="samples-title"
             title="Bundled sample quotes"
@@ -77,7 +77,7 @@ export function SourcePicker({ live, samples, action, pending, state }: SourcePi
           </form>
         </Card>
 
-        <Card aria-labelledby="upload-title" className="self-start">
+        <Card aria-labelledby="upload-title" className="min-w-0 self-start">
           <CardHeader id="upload-title" title="Upload a quote" description="PDF, JPG or PNG, up to 5 MB." />
           <form
             action={action}

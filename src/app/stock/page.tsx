@@ -51,12 +51,12 @@ async function StockContent({ searchParams }: { searchParams: PageProps<"/stock"
   const [materials, lowItems] = await Promise.all([getMaterials(query), getMaterials({ lowOnly: true })]);
 
   return (
-    <div className="grid gap-6 xl:grid-cols-3">
-      <Card aria-label="Materials" className="xl:col-span-2">
+    <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
+      <Card aria-label="Materials" className="min-w-0 xl:col-span-2">
         <StockFilters query={query} />
         <MaterialsTable materials={materials} />
       </Card>
-      <Card aria-labelledby="low-title" className="self-start">
+      <Card aria-labelledby="low-title" className="min-w-0 self-start">
         <CardHeader
           id="low-title"
           title={`Low stock (${lowItems.length})`}

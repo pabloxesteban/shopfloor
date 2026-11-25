@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("demo mode says plainly when a sample has no recorded response", async ({ page }) => {
   await page.goto("/imports/new");
-  await expect(page.getByText(/Demo mode · no API key/)).toBeVisible();
+  await expect(page.getByText("No API key on this server, so only recorded responses can be used.")).toBeVisible();
   await expect(page.getByRole("button", { name: "Extract uploaded file" })).toBeDisabled();
 
   await page.getByRole("radio", { name: /Importadora Lapacho/ }).check();
