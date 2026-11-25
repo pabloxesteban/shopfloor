@@ -164,9 +164,10 @@ export function FilterBar({ query }: { query: OrdersQuery }) {
             const checked = current.status.includes(status);
             return (
               <label key={status} className="relative">
+                {/* Transparent input over the whole chip: the chip is the visible control, the input gets the clicks. */}
                 <input
                   type="checkbox"
-                  className="peer sr-only"
+                  className="peer absolute inset-0 z-10 cursor-pointer opacity-0"
                   checked={checked}
                   onChange={() => navigate({ status: toggleStatus(current.status, status) })}
                 />

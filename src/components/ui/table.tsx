@@ -5,9 +5,10 @@ import { cn } from "./cn";
  * Plain semantic table. On narrow screens it scrolls horizontally and the
  * first column stays pinned so each row keeps its label in view.
  */
-export function Table({ caption, children, className }: { caption: ReactNode; children: ReactNode; className?: string }) {
+export function Table({ caption, children, className }: { caption: string; children: ReactNode; className?: string }) {
   return (
-    <div className="overflow-x-auto">
+    // Focusable so keyboard users can scroll the table sideways on small screens.
+    <div className="overflow-x-auto" tabIndex={0} role="group" aria-label={caption}>
       <table className={cn("w-full border-collapse text-sm", className)}>
         <caption className="sr-only">{caption}</caption>
         {children}

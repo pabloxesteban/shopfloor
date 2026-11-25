@@ -18,7 +18,7 @@ import {
 } from "@/server/ai/extract-quote";
 import { createRateLimiter } from "@/server/ai/rate-limit";
 import { extractFromRecording, loadRecording } from "@/server/ai/recordings";
-import { findSample, samplePdfPath } from "@/server/ai/samples";
+import { findSample } from "@/server/ai/samples";
 import { completePendingImport, getPendingImport, registerPendingImport } from "@/server/pending-imports";
 import { getRepositories } from "@/server/repository";
 import { MAX_UPLOAD_BYTES, type ConfirmState, type ExtractState } from "./import-state";
@@ -51,7 +51,7 @@ async function readSource(
   if (source === "sample") {
     const sample = findSample(String(formData.get("sampleId") ?? ""));
     if (!sample) return fail("bad_input", "Choose one of the bundled samples.");
-    const data = await readFile(path.join(process.cwd(), samplePdfPath(sample.id)));
+    const data = await readFile(path.join(process.cwd(), "public", "samples", `${sample.id}.pdf`));
     return { document: { data, mimeType: "application/pdf" }, sampleId: sample.id, label: sample.label };
   }
   if (source === "upload") {

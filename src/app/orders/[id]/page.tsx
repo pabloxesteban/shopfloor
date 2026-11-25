@@ -76,7 +76,7 @@ async function OrderDetail({ params }: { params: PageProps<"/orders/[id]">["para
           <Card aria-labelledby="status-title">
             <CardHeader id="status-title" title="Status" description="Quote, confirmed, in production, ready, delivered." />
             <div className="px-4 py-4 sm:px-5">
-              <StatusActions key={`${order.id}-${order.status}`} orderId={order.id} status={order.status} />
+              <StatusActions orderId={order.id} status={order.status} />
             </div>
           </Card>
 

@@ -68,7 +68,9 @@ export function WeeklyChart({ weeks }: { weeks: WeekBucket[] }) {
           </span>
         ))}
       </figcaption>
-      <table className="sr-only">
+      {/* Wrapped: tables ignore the 1px size of sr-only and would widen the page. */}
+      <div className="sr-only">
+      <table>
         <caption>Orders created per week, by current status</caption>
         <thead>
           <tr>
@@ -93,6 +95,7 @@ export function WeeklyChart({ weeks }: { weeks: WeekBucket[] }) {
           ))}
         </tbody>
       </table>
+      </div>
     </figure>
   );
 }
