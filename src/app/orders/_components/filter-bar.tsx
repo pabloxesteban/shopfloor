@@ -98,7 +98,7 @@ export function FilterBar({ query }: { query: OrdersQuery }) {
                 className={cn(
                   "inline-flex h-8 items-center rounded-full border px-3 text-sm font-medium transition-colors",
                   isCurrent
-                    ? "border-brand bg-brand text-brand-fg"
+                    ? "border-accent bg-accent-soft text-accent"
                     : "border-border-strong bg-surface text-muted hover:border-text hover:text-text",
                 )}
               >
