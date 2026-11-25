@@ -44,12 +44,20 @@ test("stock", async ({ page }) => {
   await page.screenshot({ path: `${DIR}/stock.png`, fullPage: true });
 });
 
-test("import in demo mode without recordings", async ({ page }) => {
+test("import, choosing a recorded sample", async ({ page }) => {
   await page.goto("/imports/new");
-  await page.getByRole("button", { name: "Extract selected sample" }).click();
-  await expect(page.getByRole("main").getByRole("alert")).toContainText("No recorded response");
+  await expect(page.getByRole("button", { name: "Extract selected sample" })).toBeVisible();
   await settle(page);
   await page.screenshot({ path: `${DIR}/import-demo.png`, fullPage: true });
+});
+
+test("import, review screen", async ({ page }) => {
+  await page.goto("/imports/new");
+  await page.getByRole("radio", { name: /Perfiles Quillén, profiles/ }).check();
+  await page.getByRole("button", { name: "Extract selected sample" }).click();
+  await expect(page.getByRole("button", { name: "Import to stock" })).toBeVisible();
+  await settle(page);
+  await page.screenshot({ path: `${DIR}/import-review.png`, fullPage: true });
 });
 
 test.describe("mobile", () => {
