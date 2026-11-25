@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
-import type { OrderStatus } from "@/domain/status";
 import { cn } from "./cn";
-import { StageBar } from "./stage-bar";
 
 type Tone = "neutral" | "accent" | "danger" | "warning" | "success";
 
@@ -25,14 +23,4 @@ export function Badge({ tone = "neutral", className, children }: { tone?: Tone; 
       {children}
     </span>
   );
-}
-
-/** Kept so existing imports compile; status is now the stage bar. */
-export function StatusBadge({ status }: { status: OrderStatus }) {
-  return <StageBar status={status} size="sm" />;
-}
-
-export function PriorityBadge({ priority }: { priority: "normal" | "urgent" }) {
-  if (priority === "normal") return <span className="text-xs text-muted">Normal</span>;
-  return <Badge tone="danger">Urgent</Badge>;
 }
