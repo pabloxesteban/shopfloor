@@ -2,13 +2,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export function StatsSkeleton() {
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {Array.from({ length: 4 }, (_, i) => (
-          <Skeleton key={i} className="h-24 rounded-lg" />
-        ))}
+    <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end lg:gap-12" aria-hidden="true">
+      <div className="space-y-6">
+        <div className="h-28 w-48 rounded-lg bg-brand-2" />
+        <div className="h-16 rounded-lg bg-brand-2" />
       </div>
-      <Skeleton className="h-64 rounded-lg" />
+      <div className="h-52 rounded-lg bg-brand-2" />
     </div>
   );
 }

@@ -151,6 +151,12 @@ body {
   outline-color: var(--signal);
 }
 
+/* Extends a section's background to the viewport edges without horizontal scroll. */
+.band-bleed {
+  box-shadow: 0 0 0 100vmax var(--brand);
+  clip-path: inset(0 -100vmax);
+}
+
 .tabular {
   font-variant-numeric: tabular-nums;
 }
