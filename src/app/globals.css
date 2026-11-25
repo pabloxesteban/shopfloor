@@ -7,91 +7,97 @@
  */
 :root {
   color-scheme: light;
-  --bg: #f6f7f9;
+  --bg: #f4f6f5;
   --surface: #ffffff;
-  --surface-muted: #f1f3f5;
-  --border: #e1e4e8;
-  --border-strong: #c9ced4;
-  --text: #17191c;
-  --text-muted: #5b636d;
-  --accent: #0b6e6e;
-  --accent-hover: #095a5a;
+  --surface-muted: #edf1ef;
+  --border: #dce3e0;
+  --border-strong: #b9c6c1;
+  --text: #14201d;
+  --text-muted: #5b6b67;
+  --accent: #1a7a63;
+  --accent-hover: #145446;
   --accent-fg: #ffffff;
-  --accent-soft: #e3f2f1;
-  --focus: #0b6e6e;
-  --danger: #b42318;
-  --danger-soft: #fdecea;
-  --warning: #8a5a00;
-  --warning-soft: #fff4dc;
-  --success: #1d6b3a;
-  --success-soft: #e6f4ea;
+  --accent-soft: #ddf0e9;
+  --focus: #1a7a63;
+  --danger: #b4530a;
+  --danger-soft: #fdf0d9;
+  --warning: #b4530a;
+  --warning-soft: #fdf0d9;
+  --success: #1a7a63;
+  --success-soft: #ddf0e9;
 
-  --st-quote: #7a8591;
-  --st-confirmed: #3a6fb0;
-  --st-in_production: #b7791f;
-  --st-ready: #2f855a;
-  --st-delivered: #4a5568;
-  --st-cancelled: #b42318;
+  --brand: #0e3b33;
+  --brand-2: #145446;
+  --brand-fg: #ffffff;
+  --brand-muted: #9fd8c7;
+  --signal: #f5b13d;
+  --signal-fg: #2a1a00;
+  --signal-ink: #b4530a;
+  --signal-soft: #fdf0d9;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0f1113;
-    --surface: #171a1d;
-    --surface-muted: #1f2327;
-    --border: #2a2f35;
-    --border-strong: #3a4148;
-    --text: #e8eaed;
-    --text-muted: #9aa3ad;
-    --accent: #4fc1b8;
-    --accent-hover: #6fd0c8;
-    --accent-fg: #062523;
-    --accent-soft: #12302e;
-    --focus: #4fc1b8;
-    --danger: #f2877d;
-    --danger-soft: #3a1714;
-    --warning: #f0c060;
+    --bg: #0c1513;
+    --surface: #13201c;
+    --surface-muted: #1a2a26;
+    --border: #233430;
+    --border-strong: #35504a;
+    --text: #e6eeeb;
+    --text-muted: #93a6a0;
+    --accent: #9fd8c7;
+    --accent-hover: #b8e4d6;
+    --accent-fg: #0c1513;
+    --accent-soft: #16302a;
+    --focus: #9fd8c7;
+    --danger: #f5b13d;
+    --danger-soft: #33280f;
+    --warning: #f5b13d;
     --warning-soft: #33280f;
-    --success: #7fcf9b;
-    --success-soft: #13291b;
+    --success: #9fd8c7;
+    --success-soft: #16302a;
 
-    --st-quote: #9aa3ad;
-    --st-confirmed: #7aa7e0;
-    --st-in_production: #e0b060;
-    --st-ready: #72c493;
-    --st-delivered: #b4bcc6;
-    --st-cancelled: #f2877d;
+    --brand: #0e3b33;
+    --brand-2: #145446;
+    --brand-fg: #ffffff;
+    --brand-muted: #9fd8c7;
+    --signal: #f5b13d;
+    --signal-fg: #2a1a00;
+    --signal-ink: #f5b13d;
+    --signal-soft: #33280f;
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0f1113;
-  --surface: #171a1d;
-  --surface-muted: #1f2327;
-  --border: #2a2f35;
-  --border-strong: #3a4148;
-  --text: #e8eaed;
-  --text-muted: #9aa3ad;
-  --accent: #4fc1b8;
-  --accent-hover: #6fd0c8;
-  --accent-fg: #062523;
-  --accent-soft: #12302e;
-  --focus: #4fc1b8;
-  --danger: #f2877d;
-  --danger-soft: #3a1714;
-  --warning: #f0c060;
+  --bg: #0c1513;
+  --surface: #13201c;
+  --surface-muted: #1a2a26;
+  --border: #233430;
+  --border-strong: #35504a;
+  --text: #e6eeeb;
+  --text-muted: #93a6a0;
+  --accent: #9fd8c7;
+  --accent-hover: #b8e4d6;
+  --accent-fg: #0c1513;
+  --accent-soft: #16302a;
+  --focus: #9fd8c7;
+  --danger: #f5b13d;
+  --danger-soft: #33280f;
+  --warning: #f5b13d;
   --warning-soft: #33280f;
-  --success: #7fcf9b;
-  --success-soft: #13291b;
+  --success: #9fd8c7;
+  --success-soft: #16302a;
 
-  --st-quote: #9aa3ad;
-  --st-confirmed: #7aa7e0;
-  --st-in_production: #e0b060;
-  --st-ready: #72c493;
-  --st-delivered: #b4bcc6;
-  --st-cancelled: #f2877d;
+  --brand: #0e3b33;
+  --brand-2: #145446;
+  --brand-fg: #ffffff;
+  --brand-muted: #9fd8c7;
+  --signal: #f5b13d;
+  --signal-fg: #2a1a00;
+  --signal-ink: #f5b13d;
+  --signal-soft: #33280f;
 }
 
 @theme inline {
@@ -112,8 +118,16 @@
   --color-warning-soft: var(--warning-soft);
   --color-success: var(--success);
   --color-success-soft: var(--success-soft);
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --color-brand-fg: var(--brand-fg);
+  --color-brand-muted: var(--brand-muted);
+  --color-signal: var(--signal);
+  --color-signal-fg: var(--signal-fg);
+  --color-signal-ink: var(--signal-ink);
+  --color-signal-soft: var(--signal-soft);
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, monospace;
 }
 
 html {
@@ -125,6 +139,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
+  font-stretch: 96%;
 }
 
 :focus-visible {
@@ -133,6 +148,13 @@ body {
 }
 
 .tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.display {
+  font-stretch: 78%;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
 

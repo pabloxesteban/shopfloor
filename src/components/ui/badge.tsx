@@ -30,7 +30,7 @@ export function Badge({ tone = "neutral", className, children }: { tone?: Tone; 
 export function StatusBadge({ status }: { status: OrderStatus }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2 py-0.5 text-xs font-medium whitespace-nowrap text-text">
-      <span aria-hidden="true" className="size-2 rounded-full" style={{ background: `var(--st-${status})` }} />
+      <span aria-hidden="true" className="size-2 rounded-full" style={{ background: `var(--text-muted)` }} />
       {STATUS_LABELS[status]}
     </span>
   );

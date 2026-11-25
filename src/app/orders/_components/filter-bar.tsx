@@ -180,7 +180,7 @@ export function FilterBar({ query }: { query: OrdersQuery }) {
                       : "border-border-strong bg-surface text-muted hover:text-text")
                   }
                 >
-                  <span aria-hidden="true" className="size-2 rounded-full" style={{ background: `var(--st-${status})` }} />
+                  <span aria-hidden="true" className="size-2 rounded-full" style={{ background: `var(--text-muted)` }} />
                   {STATUS_LABELS[status]}
                   {checked ? <span aria-hidden="true">&#10003;</span> : null}
                 </span>
