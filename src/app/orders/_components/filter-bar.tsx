@@ -1,13 +1,20 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useOptimistic, useRef, useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/components/ui/cn";
 import { Input, Select } from "@/components/ui/field";
+import { BUSINESS_TODAY } from "@/domain/dates";
 import {
   DEFAULT_ORDERS_QUERY,
+  QUICK_FILTER_KEYS,
+  activeQuickFilter,
   hasActiveFilters,
   ordersHref,
+  quickFilterQuery,
+  type QuickFilterKey,
   toggleStatus,
   type OrdersQuery,
   type SortField,
@@ -22,6 +29,14 @@ const SORT_OPTIONS: { value: `${SortField}:${"asc" | "desc"}`; label: string }[]
   { value: "total:desc", label: "Total, highest first" },
   { value: "total:asc", label: "Total, lowest first" },
 ];
+
+const CHIP_LABELS: Record<QuickFilterKey, string> = {
+  all: "All",
+  past_due: "Past due",
+  this_week: "This week",
+  urgent: "Urgent",
+  in_production: "In production",
+};
 
 const SEARCH_DELAY_MS = 350;
 
@@ -63,8 +78,48 @@ export function FilterBar({ query }: { query: OrdersQuery }) {
     timer.current = setTimeout(() => navigate({ q: value.trim() }, { replace: true }), SEARCH_DELAY_MS);
   }
 
+  const activeChip = activeQuickFilter(current, BUSINESS_TODAY);
+  // A chip hides the fields it owns. Anything else the user set stays in view.
+  const manualFilters = activeChip === null && hasActiveFilters(current);
+
   return (
-    <div className="space-y-3 border-b border-border px-4 py-4 sm:px-5">
+    <div className="border-b border-border px-4 py-4 sm:px-5">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <nav aria-label="Quick filters" className="-mx-1 flex flex-wrap gap-2 px-1">
+          {QUICK_FILTER_KEYS.map((key) => {
+            const isCurrent = activeChip === key;
+            return (
+              <Link
+                key={key}
+                // Chips own their fields and keep only the current sort.
+                href={ordersHref({ ...quickFilterQuery(key, BUSINESS_TODAY), sort: current.sort, dir: current.dir })}
+                scroll={false}
+                aria-current={isCurrent ? "true" : undefined}
+                className={cn(
+                  "inline-flex h-8 items-center rounded-full border px-3 text-sm font-medium transition-colors",
+                  isCurrent
+                    ? "border-brand bg-brand text-brand-fg"
+                    : "border-border-strong bg-surface text-muted hover:border-text hover:text-text",
+                )}
+              >
+                {CHIP_LABELS[key]}
+              </Link>
+            );
+          })}
+        </nav>
+        <p role="status" aria-live="polite" className="ml-auto text-xs text-muted">
+          {isPending ? "Updating results..." : ""}
+        </p>
+      </div>
+
+      <details open={manualFilters} className="group mt-3">
+        <summary className="inline-flex h-8 cursor-pointer list-none items-center gap-1.5 rounded-md text-sm font-medium text-muted hover:text-text [&::-webkit-details-marker]:hidden">
+          <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">
+            &#9656;
+          </span>
+          More filters
+        </summary>
+        <div className="mt-3 space-y-3">
       <div className="flex flex-wrap items-end gap-3">
         <form
           role="search"
@@ -180,7 +235,6 @@ export function FilterBar({ query }: { query: OrdersQuery }) {
                       : "border-border-strong bg-surface text-muted hover:text-text")
                   }
                 >
-                  <span aria-hidden="true" className="size-2 rounded-full" style={{ background: "var(--text-muted)" }} />
                   {STATUS_LABELS[status]}
                   {checked ? <span aria-hidden="true">&#10003;</span> : null}
                 </span>
@@ -202,10 +256,9 @@ export function FilterBar({ query }: { query: OrdersQuery }) {
           </Button>
         ) : null}
 
-        <p role="status" aria-live="polite" className="ml-auto text-xs text-muted">
-          {isPending ? "Updating results..." : ""}
-        </p>
       </div>
+        </div>
+      </details>
     </div>
   );
 }

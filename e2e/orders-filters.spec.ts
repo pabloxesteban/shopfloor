@@ -5,6 +5,7 @@ test("filters orders through the UI, keeps them in the URL and after a reload", 
   const table = page.getByRole("table", { name: /^Orders, / });
   await expect(table).toBeVisible();
 
+  await page.getByText("More filters").click();
   await page.getByRole("checkbox", { name: "Confirmed" }).check();
   await expect(page).toHaveURL(/status=confirmed(&|$)/);
   await page.getByRole("checkbox", { name: "In production" }).check();
@@ -45,6 +46,7 @@ test("searches, sorts and paginates on the server", async ({ page }) => {
   await expect(page).toHaveURL(/page=3/);
   await expect(page.getByText("Showing 41 to 60 of 120 orders")).toBeVisible();
 
+  await page.getByText("More filters").click();
   await page.getByRole("searchbox", { name: "Search" }).fill("ORD-1042");
   await expect(page).toHaveURL(/q=ORD-1042/);
   await expect(page).not.toHaveURL(/page=/);

@@ -46,10 +46,18 @@ test("mobile tab bar is visible and never covers the end of the content", async 
   await page.goto("/orders");
   const bar = page.getByRole("navigation", { name: "Main mobile" });
   await expect(bar).toBeVisible();
-  // Generic on purpose: the last order link, whether rows are table rows or cards.
-  const last = page.locator('main a[href^="/orders/ORD-"]').last();
+  // The last row, which is a card on this width: the `tr` that holds the last order link.
+  const last = page.locator("main tr").filter({ has: page.locator('a[href^="/orders/ORD-"]') }).last();
   await last.scrollIntoViewIfNeeded();
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  // Wait for the scroll to settle before reading boxes.
+  await expect
+    .poll(async () => {
+      const box = await last.boundingBox();
+      const barTop = (await bar.boundingBox())?.y ?? 0;
+      return box !== null && box.y + box.height <= barTop;
+    })
+    .toBe(true);
   const rowBox = await last.boundingBox();
   const barBox = await bar.boundingBox();
   expect(rowBox).not.toBeNull();

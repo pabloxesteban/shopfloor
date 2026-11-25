@@ -2,7 +2,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { DEFAULT_ORDERS_QUERY, type OrdersQuery } from "@/domain/orders-query";
+import { BUSINESS_TODAY } from "@/domain/dates";
+import { DEFAULT_ORDERS_QUERY, ordersHref, quickFilterQuery, type OrdersQuery } from "@/domain/orders-query";
 import { FilterBar } from "./filter-bar";
 
 const push = vi.fn();
@@ -59,5 +60,37 @@ describe("FilterBar", () => {
     renderBar({ priority: "urgent", sort: "total" });
     await userEvent.click(screen.getByRole("button", { name: "Clear filters" }));
     expect(push).toHaveBeenCalledWith("/orders?sort=total", { scroll: false });
+  });
+
+  it("links each quick filter chip to its query", () => {
+    renderBar();
+    expect(screen.getByRole("link", { name: "Past due" })).toHaveAttribute(
+      "href",
+      ordersHref(quickFilterQuery("past_due", BUSINESS_TODAY)),
+    );
+    expect(screen.getByRole("link", { name: "All" })).toHaveAttribute("href", "/orders");
+    for (const name of ["This week", "Urgent", "In production"]) {
+      expect(screen.getByRole("link", { name })).toBeInTheDocument();
+    }
+  });
+
+  it("marks All as current by default and keeps More filters closed", () => {
+    const { container } = renderBar();
+    expect(screen.getByRole("link", { name: "All" })).toHaveAttribute("aria-current", "true");
+    expect(screen.getByRole("link", { name: "Past due" })).not.toHaveAttribute("aria-current");
+    expect(container.querySelector("details")).not.toHaveAttribute("open");
+  });
+
+  it("marks the matching chip current and keeps its own fields closed", () => {
+    const { container } = render(<FilterBar query={quickFilterQuery("urgent", BUSINESS_TODAY)} />);
+    expect(screen.getByRole("link", { name: "Urgent" })).toHaveAttribute("aria-current", "true");
+    expect(container.querySelector("details")).not.toHaveAttribute("open");
+  });
+
+  it("opens More filters and marks no chip when a manual filter is set", () => {
+    const { container } = renderBar({ q: "Sosa" });
+    expect(screen.queryAllByRole("link").filter((a) => a.getAttribute("aria-current") === "true")).toHaveLength(0);
+    expect(container.querySelector("details")).toHaveAttribute("open");
+    expect(screen.getByText("More filters")).toBeInTheDocument();
   });
 });

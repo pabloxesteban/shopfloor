@@ -5,11 +5,22 @@ import { cn } from "./cn";
  * Plain semantic table. On narrow screens it scrolls horizontally and the
  * first column stays pinned so each row keeps its label in view.
  */
-export function Table({ caption, children, className }: { caption: string; children: ReactNode; className?: string }) {
+export function Table({
+  caption,
+  children,
+  className,
+  cards = false,
+}: {
+  caption: string;
+  children: ReactNode;
+  className?: string;
+  /** Under `sm`, rows become stacked cards (the table must style its own rows and cells). */
+  cards?: boolean;
+}) {
   return (
     // Focusable so keyboard users can scroll the table sideways on small screens.
     <div className="overflow-x-auto" tabIndex={0} role="group" aria-label={caption}>
-      <table className={cn("w-full border-collapse text-sm", className)}>
+      <table className={cn("w-full border-collapse text-sm", cards && "max-sm:block [&_tbody]:max-sm:block", className)}>
         <caption className="sr-only">{caption}</caption>
         {children}
       </table>

@@ -15,13 +15,12 @@ export function StatsSkeleton() {
 export function FilterBarSkeleton() {
   return (
     <div className="space-y-3 border-b border-border px-4 py-4 sm:px-5">
-      <div className="flex flex-wrap gap-3">
-        <Skeleton className="h-14 w-64" />
-        <Skeleton className="h-14 w-36" />
-        <Skeleton className="h-14 w-40" />
-        <Skeleton className="h-14 w-40" />
+      <div className="flex flex-wrap gap-2">
+        {["w-14", "w-24", "w-24", "w-20", "w-28"].map((w, i) => (
+          <Skeleton key={i} className={`h-8 rounded-full ${w}`} />
+        ))}
       </div>
-      <Skeleton className="h-7 w-full max-w-xl" />
+      <Skeleton className="h-8 w-32" />
     </div>
   );
 }
