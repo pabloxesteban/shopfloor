@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canTransition, isEditable, isOpen, nextStatuses, ORDER_STATUSES } from "./status";
+import { canTransition, isEditable, isOpen, nextStatuses, ORDER_STATUSES, stageProgress } from "./status";
 
 describe("order status state machine", () => {
   it("follows the happy path", () => {
@@ -40,5 +40,17 @@ describe("order status state machine", () => {
   it("knows which statuses are open and editable", () => {
     expect(ORDER_STATUSES.filter(isOpen)).toEqual(["confirmed", "in_production", "ready"]);
     expect(ORDER_STATUSES.filter(isEditable)).toEqual(["quote", "confirmed"]);
+  });
+});
+
+describe("stageProgress", () => {
+  it("maps statuses to a step out of five", () => {
+    expect(stageProgress("quote")).toEqual({ step: 0, total: 5, cancelled: false });
+    expect(stageProgress("ready")).toEqual({ step: 3, total: 5, cancelled: false });
+    expect(stageProgress("delivered")).toEqual({ step: 4, total: 5, cancelled: false });
+  });
+
+  it("marks cancelled orders as an empty bar", () => {
+    expect(stageProgress("cancelled")).toEqual({ step: -1, total: 5, cancelled: true });
   });
 });

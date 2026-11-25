@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addDays, daysBetween, formatDate, startOfMonth, startOfWeek } from "./dates";
+import { addDays, daysBetween, formatDate, formatDueRelative, startOfMonth, startOfWeek } from "./dates";
 
 describe("dates", () => {
   it("adds days across month and year boundaries", () => {
@@ -21,5 +21,16 @@ describe("dates", () => {
 
   it("formats in UTC regardless of the machine time zone", () => {
     expect(formatDate("2026-11-01")).toBe("1 Nov 2026");
+  });
+});
+
+describe("formatDueRelative", () => {
+  const today = "2026-11-18";
+  it("describes upcoming and late dates", () => {
+    expect(formatDueRelative("2026-11-18", today)).toBe("Due today");
+    expect(formatDueRelative("2026-11-19", today)).toBe("Due tomorrow");
+    expect(formatDueRelative("2026-11-21", today)).toBe("Due in 3 days");
+    expect(formatDueRelative("2026-11-17", today)).toBe("1 day late");
+    expect(formatDueRelative("2026-11-08", today)).toBe("10 days late");
   });
 });

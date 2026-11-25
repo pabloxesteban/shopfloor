@@ -63,3 +63,13 @@ export function formatDate(iso: string): string {
 export function formatShortDate(iso: string): string {
   return shortDateFormat.format(parseIsoDate(iso));
 }
+
+/** "Due in 3 days", "Due today", "2 days late", relative to `todayIso`. */
+export function formatDueRelative(dueIso: string, todayIso: string): string {
+  const days = daysBetween(todayIso, dueIso);
+  if (days === 0) return "Due today";
+  if (days === 1) return "Due tomorrow";
+  if (days > 1) return `Due in ${days} days`;
+  const late = -days;
+  return late === 1 ? "1 day late" : `${late} days late`;
+}

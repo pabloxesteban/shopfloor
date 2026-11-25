@@ -56,3 +56,11 @@ export function isOpen(status: OrderStatus): boolean {
 export function isEditable(status: OrderStatus): boolean {
   return status === "quote" || status === "confirmed";
 }
+
+/** Left-to-right stages shown in the stage bar. Cancelled sits outside the flow. */
+export const STAGES: readonly OrderStatus[] = ["quote", "confirmed", "in_production", "ready", "delivered"];
+
+export function stageProgress(status: OrderStatus): { step: number; total: 5; cancelled: boolean } {
+  if (status === "cancelled") return { step: -1, total: 5, cancelled: true };
+  return { step: STAGES.indexOf(status), total: 5, cancelled: false };
+}

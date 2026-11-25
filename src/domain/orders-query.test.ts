@@ -1,9 +1,14 @@
 import { describe, expect, it } from "vitest";
+import { seedOrders } from "@/server/data/seed";
+import { createSeededRepositories } from "@/server/repository";
+import { computeKpis } from "./kpis";
 import {
+  activeQuickFilter,
   DEFAULT_ORDERS_QUERY,
   hasActiveFilters,
   ordersHref,
   parseOrdersQuery,
+  quickFilterQuery,
   serializeOrdersQuery,
   toggleStatus,
 } from "./orders-query";
@@ -98,5 +103,41 @@ describe("orders search params", () => {
     expect(hasActiveFilters(DEFAULT_ORDERS_QUERY)).toBe(false);
     expect(hasActiveFilters({ ...DEFAULT_ORDERS_QUERY, sort: "total", page: 4 })).toBe(false);
     expect(hasActiveFilters({ ...DEFAULT_ORDERS_QUERY, dueTo: "2026-12-01" })).toBe(true);
+  });
+});
+
+describe("quick filters", () => {
+  const today = "2026-11-18";
+
+  it("builds past due and this week queries", () => {
+    const pastDue = quickFilterQuery("past_due", today);
+    expect(pastDue.dueTo).toBe("2026-11-17");
+    expect(pastDue.status).toEqual(["confirmed", "in_production", "ready"]);
+    expect(pastDue.page).toBe(1);
+    const week = quickFilterQuery("this_week", today);
+    expect(week.dueFrom).toBe("2026-11-16");
+    expect(week.dueTo).toBe("2026-11-22");
+    expect(week.status).toEqual(["confirmed", "in_production", "ready"]);
+  });
+
+  it("builds the other chips from the default query", () => {
+    expect(quickFilterQuery("all", today)).toEqual(DEFAULT_ORDERS_QUERY);
+    expect(quickFilterQuery("urgent", today)).toEqual({ ...DEFAULT_ORDERS_QUERY, priority: "urgent" });
+    expect(quickFilterQuery("in_production", today)).toEqual({ ...DEFAULT_ORDERS_QUERY, status: ["in_production"] });
+  });
+
+  it("detects the active chip, ignoring sort, direction and page", () => {
+    expect(activeQuickFilter(DEFAULT_ORDERS_QUERY, today)).toBe("all");
+    expect(activeQuickFilter({ ...quickFilterQuery("urgent", today), page: 3, sort: "total" }, today)).toBe("urgent");
+    expect(activeQuickFilter({ ...DEFAULT_ORDERS_QUERY, q: "Sosa" }, today)).toBeNull();
+  });
+
+  it("matches the overdue KPI on the seed data", async () => {
+    const orders = seedOrders({ today });
+    const repos = createSeededRepositories(today);
+    const page = await repos.orders.list(quickFilterQuery("past_due", today));
+    expect(page.total).toBe(computeKpis(orders, today).overdue);
+    const week = await repos.orders.list(quickFilterQuery("this_week", today));
+    expect(week.total).toBe(computeKpis(orders, today).dueThisWeek);
   });
 });

@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { IsoDateSchema } from "./dates";
-import { ORDER_STATUSES, type OrderStatus } from "./status";
+import { addDays, IsoDateSchema, startOfWeek } from "./dates";
+import { isOpen, ORDER_STATUSES, type OrderStatus } from "./status";
 
 /**
  * The orders list keeps every filter, sort and page in the URL. This module
@@ -97,4 +97,42 @@ export function toggleStatus(statuses: readonly OrderStatus[], status: OrderStat
 
 export function hasActiveFilters(query: OrdersQuery): boolean {
   return Boolean(query.q || query.status.length || query.priority !== "all" || query.dueFrom || query.dueTo);
+}
+
+export type QuickFilterKey = "all" | "past_due" | "this_week" | "urgent" | "in_production";
+
+export const QUICK_FILTER_KEYS: readonly QuickFilterKey[] = ["all", "past_due", "this_week", "urgent", "in_production"];
+
+/** Open statuses (not delivered, cancelled or still a quote), as `isOpen` defines them. */
+const OPEN_STATUSES: readonly OrderStatus[] = ORDER_STATUSES.filter(isOpen);
+
+/** A chip owns its fields and drops every other filter. Always lands on page 1. */
+export function quickFilterQuery(key: QuickFilterKey, today: string): OrdersQuery {
+  const base: OrdersQuery = { ...DEFAULT_ORDERS_QUERY };
+  switch (key) {
+    case "past_due":
+      return { ...base, status: [...OPEN_STATUSES], dueTo: addDays(today, -1) };
+    case "this_week": {
+      const weekStart = startOfWeek(today);
+      return { ...base, status: [...OPEN_STATUSES], dueFrom: weekStart, dueTo: addDays(weekStart, 6) };
+    }
+    case "urgent":
+      return { ...base, priority: "urgent" };
+    case "in_production":
+      return { ...base, status: ["in_production"] };
+    case "all":
+      return base;
+  }
+}
+
+/** The chip whose query equals `query`, ignoring sort, direction and page. */
+export function activeQuickFilter(query: OrdersQuery, today: string): QuickFilterKey | null {
+  const same = (a: OrdersQuery, b: OrdersQuery): boolean =>
+    a.q === b.q &&
+    a.priority === b.priority &&
+    a.dueFrom === b.dueFrom &&
+    a.dueTo === b.dueTo &&
+    a.status.length === b.status.length &&
+    a.status.every((status, i) => status === b.status[i]);
+  return QUICK_FILTER_KEYS.find((key) => same(query, quickFilterQuery(key, today))) ?? null;
 }
