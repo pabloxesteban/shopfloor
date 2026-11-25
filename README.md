@@ -8,21 +8,21 @@ An operations dashboard for Frame & Pane Co., a small aluminum window and door w
 
 | Orders | Orders, dark mode |
 | --- | --- |
-| ![Orders list with KPIs and weekly chart](docs/screenshots/orders-light.png) | ![Filtered orders in dark mode](docs/screenshots/orders-dark.png) |
+| ![Orders screen with the past due count, quick filter chips and a table with stage bars](docs/screenshots/orders-light.png) | ![Orders screen in dark mode with a quick filter applied](docs/screenshots/orders-dark.png) |
 
 | Order detail with a validation error | Stock |
 | --- | --- |
-| ![Order detail and edit form showing an inline error](docs/screenshots/order-detail.png) | ![Stock table and low stock chart](docs/screenshots/stock.png) |
+| ![Order detail and edit form showing an inline error](docs/screenshots/order-detail.png) | ![Stock screen with the low stock count, materials table and low stock chart](docs/screenshots/stock.png) |
 
 | Import, demo mode | Phone |
 | --- | --- |
-| ![Import page saying no recorded response exists yet](docs/screenshots/import-demo.png) | ![Orders on a 375 px wide screen](docs/screenshots/orders-mobile.png) |
+| ![Import page saying no recorded response exists yet](docs/screenshots/import-demo.png) | ![Orders on a 375 px wide screen, each order shown as a card](docs/screenshots/orders-mobile.png) |
 
 Screenshots are taken from the production build with `pnpm screenshots`.
 
 ## What it does
 
-- **Orders** (`/orders`): KPIs (open orders, due this week, overdue, revenue this month), new orders per week for the last 12 weeks by status, and a table with search, status filter, priority, due date range, sorting and pagination. Every filter lives in the URL, so links can be shared and back and forward work.
+- **Orders** (`/orders`): a large past due count at the top, with open orders, orders due this week and money booked this month beside it, and a chart of new orders per week for the last 12 weeks. Quick filter chips (All, Past due, This week, Urgent, In production) sit above a table with search, status, priority, due date range, sorting and pagination. Each row shows a five-step stage bar next to the status name. On phones every order becomes a card. Every filter lives in the URL, so links can be shared and back and forward work.
 - **Order detail** (`/orders/ORD-1042`): items with prices computed from size, aluminum series and glass; an edit form for customer, due date, priority, notes and items, validated in the browser and again on the server with the same schema; buttons for the legal next status only.
 - **Stock** (`/stock`): materials with on hand, reserved, available and incoming quantities, a low stock filter and a chart of low items against their reorder point.
 - **Import a supplier quote** (`/imports/new`): upload a PDF or image, or pick one of 12 bundled sample quotes. The server extracts the quote with Gemini, the user checks every low-confidence field, and matched lines are added to incoming stock. Lines that cannot be matched are listed with the reason.
