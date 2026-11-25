@@ -6,11 +6,12 @@ import { BrandBand } from "@/components/brand-band";
 import { Card, CardHeader } from "@/components/ui/card";
 import { StageBar } from "@/components/ui/stage-bar";
 import { Skeleton } from "@/components/ui/skeleton";
-import { BUSINESS_TODAY, formatDate, formatDueRelative } from "@/domain/dates";
+import { BUSINESS_TODAY, formatDate } from "@/domain/dates";
 import { formatMoney } from "@/domain/money";
 import { orderTotalCents } from "@/domain/pricing";
 import { isEditable, isOpen, STATUS_LABELS } from "@/domain/status";
 import { getOrder } from "@/server/queries";
+import { dueLine } from "./_components/due-line";
 import { ItemsTable } from "./_components/items-table";
 import { OrderEditForm } from "./_components/order-edit-form";
 import { StatusActions } from "./_components/status-actions";
@@ -26,6 +27,7 @@ async function OrderDetail({ params }: { params: PageProps<"/orders/[id]">["para
   if (!order) notFound();
 
   const overdue = isOpen(order.status) && order.dueDate < BUSINESS_TODAY;
+  const due = dueLine(order.status, order.dueDate, BUSINESS_TODAY);
 
   return (
     <>
@@ -47,8 +49,8 @@ async function OrderDetail({ params }: { params: PageProps<"/orders/[id]">["para
               <StageBar status={order.status} size="lg" onBrand />
               <p className="flex items-center gap-2 text-base">
                 {overdue ? <span aria-hidden="true" className="size-2.5 rounded-full bg-signal" /> : null}
-                <span>{isOpen(order.status) ? formatDueRelative(order.dueDate, BUSINESS_TODAY) : `Due ${formatDate(order.dueDate)}`}</span>
-                <span className="text-brand-muted">({formatDate(order.dueDate)})</span>
+                <span>{due.text}</span>
+                {due.date ? <span className="text-brand-muted">({due.date})</span> : null}
               </p>
             </div>
           </div>
