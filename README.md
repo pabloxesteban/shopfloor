@@ -2,6 +2,8 @@
 
 An operations dashboard for Frame & Pane Co., a small aluminum window and door workshop: orders, stock, and importing supplier quotes with an AI model and a human review step.
 
+**Live demo:** [shopfloor-pablofernandez.vercel.app](https://shopfloor-pablofernandez.vercel.app). It runs in demo mode: the import screen replays real recorded model responses, so no API key is needed.
+
 > **Concept project · fictional data / not client work.** Frame & Pane Co., its customers, suppliers, orders and numbers are invented and generated. It was built as a portfolio piece by Pablo Esteban Fernandez.
 
 ## Screenshots
