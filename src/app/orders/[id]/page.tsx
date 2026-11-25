@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { Badge, PriorityBadge, StatusBadge } from "@/components/ui/badge";
+import { BrandBand } from "@/components/brand-band";
 import { Card, CardHeader } from "@/components/ui/card";
+import { StageBar } from "@/components/ui/stage-bar";
 import { Skeleton } from "@/components/ui/skeleton";
-import { BUSINESS_TODAY, formatDate } from "@/domain/dates";
+import { BUSINESS_TODAY, formatDate, formatDueRelative } from "@/domain/dates";
+import { formatMoney } from "@/domain/money";
+import { orderTotalCents } from "@/domain/pricing";
 import { isEditable, isOpen, STATUS_LABELS } from "@/domain/status";
 import { getOrder } from "@/server/queries";
 import { ItemsTable } from "./_components/items-table";
@@ -26,21 +29,35 @@ async function OrderDetail({ params }: { params: PageProps<"/orders/[id]">["para
 
   return (
     <>
-      <div className="mb-6">
-        <Link href="/orders" className="text-sm text-muted hover:text-text">
+      <BrandBand label="Order summary">
+        <Link href="/orders" className="rounded-md text-sm text-brand-muted underline-offset-4 hover:text-brand-fg hover:underline">
           &larr; All orders
         </Link>
-        <div className="mt-2 flex flex-wrap items-center gap-3">
-          <h1 className="font-mono text-xl font-semibold tracking-tight sm:text-2xl">{order.id}</h1>
-          <StatusBadge status={order.status} />
-          <PriorityBadge priority={order.priority} />
-          {overdue ? <Badge tone="danger">Overdue</Badge> : null}
+        <div className="mt-4 grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-10">
+          <div className="min-w-0">
+            <h1 className="display text-2xl break-words sm:text-3xl">
+              <span className="font-mono text-xl font-semibold tracking-tight sm:text-2xl">{order.id}</span>{" "}
+              <span>{order.customer.name}</span>
+            </h1>
+            <p className="mt-1 text-sm text-brand-muted">
+              {order.customer.town} · created {formatDate(order.createdAt)}
+              {order.priority === "urgent" ? " · Urgent" : ""}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+              <StageBar status={order.status} size="lg" onBrand />
+              <p className="flex items-center gap-2 text-base">
+                {overdue ? <span aria-hidden="true" className="size-2.5 rounded-full bg-signal" /> : null}
+                <span>{isOpen(order.status) ? formatDueRelative(order.dueDate, BUSINESS_TODAY) : `Due ${formatDate(order.dueDate)}`}</span>
+                <span className="text-brand-muted">({formatDate(order.dueDate)})</span>
+              </p>
+            </div>
+          </div>
+          <div className="sm:text-right">
+            <p className="display tabular text-[56px] leading-none">{formatMoney(orderTotalCents(order.items))}</p>
+            <p className="mt-1.5 text-sm text-brand-muted">Order total</p>
+          </div>
         </div>
-        <p className="mt-1 text-sm text-muted">
-          {order.customer.name}, {order.customer.town} · created {formatDate(order.createdAt)} · due{" "}
-          {formatDate(order.dueDate)}
-        </p>
-      </div>
+      </BrandBand>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="min-w-0 space-y-6 lg:col-span-2">
@@ -102,8 +119,7 @@ async function OrderDetail({ params }: { params: PageProps<"/orders/[id]">["para
 function DetailSkeleton() {
   return (
     <div aria-busy="true" aria-label="Loading order">
-      <Skeleton className="mb-2 h-4 w-24" />
-      <Skeleton className="mb-6 h-8 w-64" />
+      <Skeleton className="mb-6 h-40 rounded-lg" />
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <Skeleton className="h-96 rounded-lg lg:col-span-2" />
         <Skeleton className="h-64 rounded-lg" />

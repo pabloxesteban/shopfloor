@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Form from "next/form";
 import { Suspense } from "react";
-import { PageHeader } from "@/components/page-header";
+import { BrandBand } from "@/components/brand-band";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Select } from "@/components/ui/field";
@@ -11,6 +11,7 @@ import { parseStockQuery, type StockQuery } from "@/domain/stock-query";
 import { getMaterials } from "@/server/queries";
 import { LowStockChart } from "./_components/low-stock-chart";
 import { MaterialsTable } from "./_components/materials-table";
+import { StockHero } from "./_components/stock-hero";
 
 export const metadata: Metadata = { title: "Stock" };
 
@@ -51,7 +52,15 @@ async function StockContent({ searchParams }: { searchParams: PageProps<"/stock"
   const [materials, lowItems] = await Promise.all([getMaterials(query), getMaterials({ lowOnly: true })]);
 
   return (
-    <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
+    <>
+      <BrandBand label="Stock overview">
+        <h1 className="display text-2xl sm:text-3xl">Stock</h1>
+        <p className="mt-1 mb-8 text-sm text-brand-muted">
+          Aluminum profiles, glass and hardware. Available means on hand minus reserved.
+        </p>
+        <StockHero lowCount={lowItems.length} />
+      </BrandBand>
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
       <Card aria-label="Materials" className="min-w-0 xl:col-span-2">
         <StockFilters query={query} />
         <MaterialsTable materials={materials} />
@@ -66,17 +75,15 @@ async function StockContent({ searchParams }: { searchParams: PageProps<"/stock"
           <LowStockChart materials={lowItems} />
         </div>
       </Card>
-    </div>
+      </div>
+    </>
   );
 }
 
 export default function StockPage({ searchParams }: PageProps<"/stock">) {
   return (
-    <>
-      <PageHeader title="Stock" description="Aluminum profiles, glass and hardware. Available means on hand minus reserved." />
-      <Suspense fallback={<Skeleton className="h-96 rounded-lg" />}>
-        <StockContent searchParams={searchParams} />
-      </Suspense>
-    </>
+    <Suspense fallback={<Skeleton className="h-96 rounded-lg" />}>
+      <StockContent searchParams={searchParams} />
+    </Suspense>
   );
 }

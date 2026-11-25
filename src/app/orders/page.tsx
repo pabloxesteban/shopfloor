@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { BrandBand } from "@/components/brand-band";
 import { Card } from "@/components/ui/card";
 import { parseOrdersQuery, type OrdersQuery } from "@/domain/orders-query";
 import { FilterBar } from "./_components/filter-bar";
@@ -19,13 +20,13 @@ export default function OrdersPage({ searchParams }: PageProps<"/orders">) {
 
   return (
     <>
-      <section aria-label="Orders overview" className="brand-band band-bleed -mt-6 mb-6 bg-brand py-8 text-brand-fg sm:-mt-8 sm:py-10">
+      <BrandBand label="Orders overview">
         <h1 className="display text-2xl sm:text-3xl">Orders</h1>
         <p className="mt-1 mb-8 text-sm text-brand-muted">Quotes and orders for windows, doors and fixed panels.</p>
         <Suspense fallback={<StatsSkeleton />}>
           <OrderStats />
         </Suspense>
-      </section>
+      </BrandBand>
       <div className="space-y-6">
         <Card aria-label="Orders list">
           <Suspense fallback={<FilterBarSkeleton />}>

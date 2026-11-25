@@ -25,7 +25,7 @@ export function StatusActions({ orderId, status }: { orderId: string; status: Or
             <form action={formAction} className="contents">
               <input type="hidden" name="orderId" value={orderId} />
               {forward.map((to) => (
-                <Button key={to} type="submit" name="to" value={to} variant="primary" disabled={pending}>
+                <Button key={to} type="submit" name="to" value={to} variant={to === forward[0] ? "signal" : "secondary"} disabled={pending}>
                   {TRANSITION_LABELS[to]}
                 </Button>
               ))}

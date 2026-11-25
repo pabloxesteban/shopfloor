@@ -27,8 +27,8 @@ export function LowStockChart({ materials }: { materials: Material[] }) {
             </div>
             <div className="relative mt-1.5 h-3 rounded-full bg-surface-muted" aria-hidden="true">
               <div className="absolute inset-y-0 left-0 flex overflow-hidden rounded-full" style={{ width: pct(avail + m.incoming) }}>
-                <div className="h-full bg-danger" style={{ width: avail + m.incoming > 0 ? `${(Math.max(avail, 0) / (avail + m.incoming)) * 100}%` : 0 }} />
-                <div className="h-full flex-1 bg-danger/35" />
+                <div className="h-full bg-signal-ink" style={{ width: avail + m.incoming > 0 ? `${(Math.max(avail, 0) / (avail + m.incoming)) * 100}%` : 0 }} />
+                <div className="h-full flex-1 bg-signal-ink/35" />
               </div>
               <div className="absolute -inset-y-1 w-0.5 bg-text" style={{ left: pct(m.reorderPoint) }} title="Reorder point" />
             </div>
@@ -37,10 +37,10 @@ export function LowStockChart({ materials }: { materials: Material[] }) {
       })}
       <li className="flex flex-wrap gap-x-4 gap-y-1 pt-1 text-xs text-muted" aria-hidden="true">
         <span className="inline-flex items-center gap-1.5">
-          <span className="size-2.5 rounded-sm bg-danger" /> Available
+          <span className="size-2.5 rounded-sm bg-signal-ink" /> Available
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span className="size-2.5 rounded-sm bg-danger/35" /> Incoming
+          <span className="size-2.5 rounded-sm bg-signal-ink/35" /> Incoming
         </span>
         <span className="inline-flex items-center gap-1.5">
           <span className="h-3 w-0.5 bg-text" /> Reorder point

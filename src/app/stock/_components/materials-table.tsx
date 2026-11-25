@@ -1,6 +1,24 @@
-import { Badge } from "@/components/ui/badge";
 import { Table, Td, Th } from "@/components/ui/table";
 import { available, CATEGORY_LABELS, isLow, UNIT_LABELS, type Material } from "@/domain/material";
+
+/** Available stock against the reorder point. Colour is secondary: the text says it too. */
+function LevelBar({ material }: { material: Material }) {
+  const low = isLow(material);
+  const share = material.reorderPoint > 0 ? Math.min(1, Math.max(0, available(material) / material.reorderPoint)) : 1;
+  return (
+    <span className="flex items-center gap-2 whitespace-nowrap">
+      <span aria-hidden="true" className="h-1.5 w-20 overflow-hidden rounded-full bg-border-strong/50">
+        <span
+          data-testid="level-fill"
+          data-low={low ? "true" : "false"}
+          className={low ? "block h-full rounded-full bg-signal-ink" : "block h-full rounded-full bg-accent"}
+          style={{ width: `${Math.round(share * 100)}%` }}
+        />
+      </span>
+      <span className={low ? "text-sm font-medium text-signal-ink" : "text-sm text-muted"}>{low ? "Low stock" : "OK"}</span>
+    </span>
+  );
+}
 
 export function MaterialsTable({ materials }: { materials: Material[] }) {
   if (materials.length === 0) {
@@ -53,7 +71,9 @@ export function MaterialsTable({ materials }: { materials: Material[] }) {
             <Td className="tabular text-right font-medium">{available(m)}</Td>
             <Td className="tabular text-right">{m.incoming > 0 ? m.incoming : <span className="text-muted">0</span>}</Td>
             <Td className="tabular text-right">{m.reorderPoint}</Td>
-            <Td>{isLow(m) ? <Badge tone="danger">Low stock</Badge> : <Badge>OK</Badge>}</Td>
+            <Td>
+              <LevelBar material={m} />
+            </Td>
           </tr>
         ))}
       </tbody>
