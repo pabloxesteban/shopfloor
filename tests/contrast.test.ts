@@ -49,6 +49,7 @@ const PAIRS: [string, string][] = [
   ["signal-ink", "signal-soft"],
   ["signal-ink", "bg"],
   ["text-muted", "surface-muted"],
+  ["success", "success-soft"],
 ];
 
 const THEMES: Record<string, Record<string, string>> = {
