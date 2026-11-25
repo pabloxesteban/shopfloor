@@ -2,8 +2,9 @@ import type { ReactNode, TdHTMLAttributes, ThHTMLAttributes } from "react";
 import { cn } from "./cn";
 
 /**
- * Plain semantic table. On narrow screens it scrolls horizontally and the
- * first column stays pinned so each row keeps its label in view.
+ * Plain semantic table. On narrow screens it scrolls horizontally; cells marked
+ * `sticky` keep the first column pinned so each row keeps its label in view.
+ * With `cards`, rows stack as cards under `sm` instead and nothing scrolls.
  */
 export function Table({
   caption,
