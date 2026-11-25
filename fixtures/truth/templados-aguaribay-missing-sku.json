@@ -1,0 +1,30 @@
+{
+  "supplier": "Templados Aguaribay",
+  "quoteNumber": "TA-552",
+  "date": "2026-11-11",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Laminado 4+4 incoloro",
+      "sku": "GLS-LAM-44",
+      "quantity": 12,
+      "unit": "m2",
+      "unitPrice": 74200
+    },
+    {
+      "description": "Templado 10 mm para mampara, a medida",
+      "sku": null,
+      "quantity": 3.6,
+      "unit": "m2",
+      "unitPrice": 138000
+    },
+    {
+      "description": "Float 6 mm incoloro",
+      "sku": "GLS-FLT-6",
+      "quantity": 15,
+      "unit": "m2",
+      "unitPrice": 32700
+    }
+  ],
+  "total": 1877700
+}

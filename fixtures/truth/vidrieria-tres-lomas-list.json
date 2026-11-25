@@ -1,0 +1,37 @@
+{
+  "supplier": "Vidriería Tres Lomas",
+  "quoteNumber": "VT-2026-1187",
+  "date": "2026-11-12",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Laminado 3+3 incoloro",
+      "sku": "GLS-LAM-33",
+      "quantity": 18.5,
+      "unit": "m2",
+      "unitPrice": 58900
+    },
+    {
+      "description": "Float 4 mm incoloro",
+      "sku": "GLS-FLT-4",
+      "quantity": 22,
+      "unit": "m2",
+      "unitPrice": 21450
+    },
+    {
+      "description": "DVH 4/12/4",
+      "sku": "GLS-DVH-4-12-4",
+      "quantity": 9.75,
+      "unit": "m2",
+      "unitPrice": 112300
+    },
+    {
+      "description": "Esmerilado 4 mm",
+      "sku": "GLS-FRO-4",
+      "quantity": 4.2,
+      "unit": "m2",
+      "unitPrice": 29800
+    }
+  ],
+  "total": 2781635
+}

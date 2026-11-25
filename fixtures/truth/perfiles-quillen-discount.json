@@ -1,0 +1,30 @@
+{
+  "supplier": "Perfiles Quillén S.R.L.",
+  "quoteNumber": "P-00431",
+  "date": "2026-11-16",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Hoja de abrir Modena, barra 6 m",
+      "sku": "PRF-MOD-111",
+      "quantity": 20,
+      "unit": "bar-6m",
+      "unitPrice": 46800
+    },
+    {
+      "description": "Hoja de puerta Modena, barra 6 m",
+      "sku": "PRF-MOD-120",
+      "quantity": 10,
+      "unit": "bar-6m",
+      "unitPrice": 62300
+    },
+    {
+      "description": "Descuento comercial 5%",
+      "sku": null,
+      "quantity": 1,
+      "unit": "unit",
+      "unitPrice": -77950
+    }
+  ],
+  "total": 1481050
+}

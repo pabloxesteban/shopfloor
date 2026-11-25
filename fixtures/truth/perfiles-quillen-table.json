@@ -1,0 +1,44 @@
+{
+  "supplier": "Perfiles Quillén S.R.L.",
+  "quoteNumber": "P-00412",
+  "date": "2026-11-10",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Marco corredizo Modena, barra 6 m",
+      "sku": "PRF-MOD-101",
+      "quantity": 24,
+      "unit": "bar-6m",
+      "unitPrice": 48350
+    },
+    {
+      "description": "Hoja corrediza Modena, barra 6 m",
+      "sku": "PRF-MOD-102",
+      "quantity": 24,
+      "unit": "bar-6m",
+      "unitPrice": 41900
+    },
+    {
+      "description": "Marco de abrir Modena, barra 6 m",
+      "sku": "PRF-MOD-110",
+      "quantity": 12,
+      "unit": "bar-6m",
+      "unitPrice": 45120
+    },
+    {
+      "description": "Contravidrio Herrero, barra 6 m",
+      "sku": "PRF-HER-215",
+      "quantity": 30,
+      "unit": "bar-6m",
+      "unitPrice": 12480.5
+    },
+    {
+      "description": "Marco corredizo Herrero, barra 6 m",
+      "sku": "PRF-HER-201",
+      "quantity": 18,
+      "unit": "bar-6m",
+      "unitPrice": 31200
+    }
+  ],
+  "total": 3643455
+}

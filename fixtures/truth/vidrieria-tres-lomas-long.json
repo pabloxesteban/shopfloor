@@ -1,0 +1,79 @@
+{
+  "supplier": "Vidriería Tres Lomas",
+  "quoteNumber": "VT-2026-1203",
+  "date": "2026-11-17",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Laminado 3+3 incoloro",
+      "sku": "GLS-LAM-33",
+      "quantity": 30,
+      "unit": "m2",
+      "unitPrice": 58900
+    },
+    {
+      "description": "Laminado 4+4 incoloro",
+      "sku": "GLS-LAM-44",
+      "quantity": 10,
+      "unit": "m2",
+      "unitPrice": 74200
+    },
+    {
+      "description": "Float 4 mm incoloro",
+      "sku": "GLS-FLT-4",
+      "quantity": 40,
+      "unit": "m2",
+      "unitPrice": 21450
+    },
+    {
+      "description": "Float 6 mm incoloro",
+      "sku": "GLS-FLT-6",
+      "quantity": 12,
+      "unit": "m2",
+      "unitPrice": 32700
+    },
+    {
+      "description": "DVH 4/12/4",
+      "sku": "GLS-DVH-4-12-4",
+      "quantity": 16.5,
+      "unit": "m2",
+      "unitPrice": 112300
+    },
+    {
+      "description": "DVH con laminado 3+3",
+      "sku": "GLS-DVH-LAM",
+      "quantity": 8,
+      "unit": "m2",
+      "unitPrice": 139900
+    },
+    {
+      "description": "Esmerilado 4 mm",
+      "sku": "GLS-FRO-4",
+      "quantity": 6,
+      "unit": "m2",
+      "unitPrice": 29800
+    },
+    {
+      "description": "Silicona neutra, cartucho",
+      "sku": "HDW-SIL-NT",
+      "quantity": 24,
+      "unit": "unit",
+      "unitPrice": 7650
+    },
+    {
+      "description": "Burlete EPDM, rollo 50 m",
+      "sku": "HDW-SEA-EPDM",
+      "quantity": 4,
+      "unit": "unit",
+      "unitPrice": 25300
+    },
+    {
+      "description": "Tornillos inoxidables, caja x500",
+      "sku": "HDW-SCR-BOX",
+      "quantity": 2,
+      "unit": "unit",
+      "unitPrice": 18100
+    }
+  ],
+  "total": 7231350
+}

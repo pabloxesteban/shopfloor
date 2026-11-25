@@ -1,0 +1,30 @@
+{
+  "supplier": "Importadora Lapacho S.A.",
+  "quoteNumber": "IL-7731",
+  "date": "2026-11-09",
+  "currency": "USD",
+  "lines": [
+    {
+      "description": "Tilt and turn hardware kit, up to 130 kg",
+      "sku": "HDW-TT-KIT",
+      "quantity": 25,
+      "unit": "unit",
+      "unitPrice": 86.4
+    },
+    {
+      "description": "Multipoint lock for aluminum doors",
+      "sku": "HDW-LCK-MP",
+      "quantity": 15,
+      "unit": "unit",
+      "unitPrice": 142.75
+    },
+    {
+      "description": "Door handle set, satin finish",
+      "sku": "HDW-HDL-DR",
+      "quantity": 15,
+      "unit": "unit",
+      "unitPrice": 38.9
+    }
+  ],
+  "total": 4884.75
+}

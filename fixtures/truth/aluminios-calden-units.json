@@ -1,0 +1,23 @@
+{
+  "supplier": "Aluminios Caldén Sur",
+  "quoteNumber": "CS-3381",
+  "date": "2026-11-15",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Hoja corrediza Herrero, barra 6 m",
+      "sku": "PRF-HER-202",
+      "quantity": 20,
+      "unit": "bar-6m",
+      "unitPrice": 27300
+    },
+    {
+      "description": "Contravidrio Herrero cortado 1,20 m",
+      "sku": "PRF-HER-215",
+      "quantity": 60,
+      "unit": "unit",
+      "unitPrice": 2480
+    }
+  ],
+  "total": 694800
+}

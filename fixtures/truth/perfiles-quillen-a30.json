@@ -1,0 +1,30 @@
+{
+  "supplier": "Perfiles Quillén S.R.L.",
+  "quoteNumber": "P-00436",
+  "date": "2026-11-17",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Marco A30 RPT, barra 6 m",
+      "sku": "PRF-A30-301",
+      "quantity": 10,
+      "unit": "bar-6m",
+      "unitPrice": 87900
+    },
+    {
+      "description": "Hoja oscilobatiente A30, barra 6 m",
+      "sku": "PRF-A30-302",
+      "quantity": 10,
+      "unit": "bar-6m",
+      "unitPrice": 91400
+    },
+    {
+      "description": "Marco de puerta A30, barra 6 m",
+      "sku": "PRF-A30-310",
+      "quantity": 6,
+      "unit": "bar-6m",
+      "unitPrice": 104250
+    }
+  ],
+  "total": 2418500
+}

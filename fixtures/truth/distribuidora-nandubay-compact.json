@@ -1,0 +1,37 @@
+{
+  "supplier": "Distribuidora Ñandubay",
+  "quoteNumber": "N-10294",
+  "date": "2026-11-13",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Burlete EPDM, rollo 50 m",
+      "sku": "HDW-SEA-EPDM",
+      "quantity": 8,
+      "unit": "unit",
+      "unitPrice": 24900
+    },
+    {
+      "description": "Felpa, rollo 50 m",
+      "sku": "HDW-BRU-50",
+      "quantity": 8,
+      "unit": "unit",
+      "unitPrice": 19750
+    },
+    {
+      "description": "Escuadra de armado reforzada",
+      "sku": "NDB-4471",
+      "quantity": 200,
+      "unit": "unit",
+      "unitPrice": 1120
+    },
+    {
+      "description": "Marco de abrir Herrero, barra 6 m",
+      "sku": "PRF-HER-210",
+      "quantity": 16,
+      "unit": "bar-6m",
+      "unitPrice": 29400
+    }
+  ],
+  "total": 1051600
+}

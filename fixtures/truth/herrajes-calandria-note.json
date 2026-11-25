@@ -1,0 +1,23 @@
+{
+  "supplier": "Herrajes Calandria S.A.",
+  "quoteNumber": "R-118",
+  "date": "2026-11-14",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Rodamientos corrediza (par)",
+      "sku": "HDW-RLR-02",
+      "quantity": 80,
+      "unit": "unit",
+      "unitPrice": 3850
+    },
+    {
+      "description": "Cerradura multipunto",
+      "sku": "HDW-LCK-MP",
+      "quantity": 6,
+      "unit": "unit",
+      "unitPrice": 96500
+    }
+  ],
+  "total": 887000
+}

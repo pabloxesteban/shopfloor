@@ -1,0 +1,23 @@
+{
+  "supplier": "Metalúrgica Coihue",
+  "quoteNumber": null,
+  "date": "2026-11-18",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Marco A30 con ruptura de puente térmico",
+      "sku": "PRF-A30-301",
+      "quantity": 14,
+      "unit": "bar-6m",
+      "unitPrice": 88600
+    },
+    {
+      "description": "Hoja oscilobatiente A30",
+      "sku": "PRF-A30-302",
+      "quantity": 14,
+      "unit": "bar-6m",
+      "unitPrice": 92150
+    }
+  ],
+  "total": 2530500
+}

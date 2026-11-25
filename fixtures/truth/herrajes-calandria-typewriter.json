@@ -1,0 +1,51 @@
+{
+  "supplier": "Herrajes Calandria S.A.",
+  "quoteNumber": "0003-00018822",
+  "date": "2026-11-04",
+  "currency": "ARS",
+  "lines": [
+    {
+      "description": "Par de rodamientos para corrediza",
+      "sku": "HDW-RLR-02",
+      "quantity": 120,
+      "unit": "unit",
+      "unitPrice": 3850
+    },
+    {
+      "description": "Cierre para ventana corrediza",
+      "sku": "HDW-LCK-SL",
+      "quantity": 60,
+      "unit": "unit",
+      "unitPrice": 4720
+    },
+    {
+      "description": "Manija para ventana de abrir",
+      "sku": "HDW-HDL-CS",
+      "quantity": 40,
+      "unit": "unit",
+      "unitPrice": 6390
+    },
+    {
+      "description": "Bisagra de tres partes",
+      "sku": "HDW-HNG-03",
+      "quantity": 150,
+      "unit": "unit",
+      "unitPrice": 2140
+    },
+    {
+      "description": "Silicona neutra, cartucho",
+      "sku": "HDW-SIL-NT",
+      "quantity": 48,
+      "unit": "unit",
+      "unitPrice": 7980
+    },
+    {
+      "description": "Tornillos inoxidables, caja x500",
+      "sku": "HDW-SCR-BOX",
+      "quantity": 10,
+      "unit": "unit",
+      "unitPrice": 18600
+    }
+  ],
+  "total": 1890840
+}
