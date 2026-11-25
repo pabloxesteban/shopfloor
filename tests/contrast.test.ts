@@ -42,6 +42,13 @@ const PAIRS: [string, string][] = [
   ["brand-fg", "brand"],
   ["brand-muted", "brand"],
   ["signal-fg", "signal"],
+  ["accent", "bg"],
+  ["accent", "accent-soft"],
+  ["danger", "danger-soft"],
+  ["warning", "warning-soft"],
+  ["signal-ink", "signal-soft"],
+  ["signal-ink", "bg"],
+  ["text-muted", "surface-muted"],
 ];
 
 const THEMES: Record<string, Record<string, string>> = {
@@ -54,8 +61,9 @@ describe("palette contrast (WCAG AA 4.5:1)", () => {
   for (const [theme, t] of Object.entries(THEMES)) {
     describe(theme, () => {
       for (const [fg, bg] of PAIRS) {
-        if (!(fg in t) || !(bg in t)) continue;
         it(`${fg} on ${bg}`, () => {
+          expect(t, `token ${fg} missing in ${theme}`).toHaveProperty(fg);
+          expect(t, `token ${bg} missing in ${theme}`).toHaveProperty(bg);
           expect(ratio(t[fg] as string, t[bg] as string)).toBeGreaterThanOrEqual(4.5);
         });
       }

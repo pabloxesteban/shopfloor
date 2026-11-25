@@ -49,7 +49,7 @@ export function WeeklyChart({ weeks }: { weeks: WeekBucket[] }) {
                 const top = y(stacked + count);
                 const height = y(stacked) - top;
                 stacked += count;
-                return <rect key={status} x={x} y={top} width={barW} height={Math.max(height - 1, 1)} rx={2} fill={`var(--text-muted)`} />;
+                return <rect key={status} x={x} y={top} width={barW} height={Math.max(height - 1, 1)} rx={2} fill="var(--text-muted)" />;
               })}
               {i % 2 === weeks.length % 2 ? (
                 <text x={x + barW / 2} y={HEIGHT - 6} textAnchor="middle" fontSize="10" fill="var(--text-muted)">
@@ -63,7 +63,7 @@ export function WeeklyChart({ weeks }: { weeks: WeekBucket[] }) {
       <figcaption className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
         {present.map((status) => (
           <span key={status} className="inline-flex items-center gap-1.5">
-            <span aria-hidden="true" className="size-2.5 rounded-sm" style={{ background: `var(--text-muted)` }} />
+            <span aria-hidden="true" className="size-2.5 rounded-sm" style={{ background: "var(--text-muted)" }} />
             {STATUS_LABELS[status]}
           </span>
         ))}
