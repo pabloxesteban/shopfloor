@@ -129,4 +129,34 @@ describe("ReviewForm", () => {
     const date = screen.getByLabelText(/^Date/).closest("[data-field]") as HTMLElement;
     expect(within(date).getByText("Check")).toBeInTheDocument();
   });
+
+  it("announces the confidence level as part of the field name", () => {
+    setup({ ...quote, date: c("2026-11-11", 0.8) });
+    expect(screen.getByLabelText(/^Date\s*confidence\s*Check/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^Supplier\s*confidence\s*High/)).toBeInTheDocument();
+  });
+
+  it("gives the collapsed document panel a disclosure cue", () => {
+    setup();
+    const summary = screen.getByText("Supplier document").closest("summary") as HTMLElement;
+    expect(within(summary).getByText("\u25B8")).toHaveAttribute("aria-hidden", "true");
+  });
+
+  it("renders the document panel open on the first render when the screen is wide", () => {
+    const original = window.matchMedia;
+    window.matchMedia = ((query: string) => ({
+      matches: true,
+      media: query,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+    })) as unknown as typeof window.matchMedia;
+    try {
+      setup();
+      const summary = screen.getByText("Supplier document").closest("summary") as HTMLElement;
+      expect(summary.closest("details")).toHaveAttribute("open");
+      expect(summary).toHaveAttribute("tabindex", "-1");
+    } finally {
+      window.matchMedia = original;
+    }
+  });
 });

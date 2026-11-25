@@ -25,21 +25,19 @@ function Flow({ live, samples, onRestart }: { live: boolean; samples: SampleOpti
 
   if (extracted.status === "review") {
     return (
-      <>
-        <ReviewForm
-          importId={extracted.importId}
-          quote={extracted.quote}
-          flaggedPaths={extracted.flaggedPaths}
-          source={extracted.source}
-          model={extracted.model}
-          recordedAt={extracted.recordedAt}
-          documentLabel={extracted.documentLabel}
-          action={confirm}
-          pending={confirming}
-          error={confirmed.status === "error" ? confirmed.message : undefined}
-          onCancel={onRestart}
-        />
-      </>
+      <ReviewForm
+        importId={extracted.importId}
+        quote={extracted.quote}
+        flaggedPaths={extracted.flaggedPaths}
+        source={extracted.source}
+        model={extracted.model}
+        recordedAt={extracted.recordedAt}
+        documentLabel={extracted.documentLabel}
+        action={confirm}
+        pending={confirming}
+        error={confirmed.status === "error" ? confirmed.message : undefined}
+        onCancel={onRestart}
+      />
     );
   }
 

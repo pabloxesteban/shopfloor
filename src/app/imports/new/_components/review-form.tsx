@@ -84,7 +84,10 @@ function ConfidenceMeter({ confidence }: { confidence: number }) {
           <span key={n} className={cn("h-1.5 w-3 rounded-full", n <= level.filled ? level.bar : "bg-border-strong")} />
         ))}
       </span>
-      <span className={level.text}>{level.word}</span>
+      <span className={level.text}>
+        <span className="sr-only">confidence </span>
+        {level.word}
+      </span>
     </span>
   );
 }
@@ -93,8 +96,10 @@ const LG_QUERY = "(min-width: 1024px)";
 
 /** Open and fixed on wide screens, a collapsed disclosure below lg. */
 function DocumentPanel({ children }: { children: ReactNode }) {
-  const [open, setOpen] = useState(false);
-  const [wide, setWide] = useState(false);
+  // Read the media query before the first paint so wide screens do not flash a closed panel.
+  // matchMedia is missing in jsdom, so tests fall back to the collapsed layout.
+  const [wide, setWide] = useState(() => typeof window !== "undefined" && typeof window.matchMedia === "function" && window.matchMedia(LG_QUERY).matches);
+  const [open, setOpen] = useState(wide);
   useEffect(() => {
     if (typeof window.matchMedia !== "function") return;
     const query = window.matchMedia(LG_QUERY);
@@ -110,12 +115,15 @@ function DocumentPanel({ children }: { children: ReactNode }) {
     <details
       open={open}
       onToggle={(e) => setOpen(e.currentTarget.open)}
-      className="rounded-lg border border-border bg-surface lg:sticky lg:top-4 lg:self-start"
+      className="group rounded-lg border border-border bg-surface lg:sticky lg:top-4 lg:self-start"
     >
       <summary
-        className="cursor-pointer px-4 py-3 text-sm font-semibold marker:content-none lg:pointer-events-none lg:cursor-default"
+        className="flex cursor-pointer items-center gap-1.5 px-4 py-3 text-sm font-semibold marker:content-none [&::-webkit-details-marker]:hidden lg:pointer-events-none lg:cursor-default"
         tabIndex={wide ? -1 : undefined}
       >
+        <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90 lg:hidden">
+          &#9656;
+        </span>
         Supplier document
       </summary>
       <div className="space-y-3 border-t border-border px-4 py-4 text-sm">{children}</div>
