@@ -3,11 +3,12 @@ import { buttonClasses } from "@/components/ui/button";
 import { cn } from "@/components/ui/cn";
 import { StageBar } from "@/components/ui/stage-bar";
 import { Table, Td, Th } from "@/components/ui/table";
-import { BUSINESS_TODAY, formatDate, formatDueRelative } from "@/domain/dates";
+import { BUSINESS_TODAY, formatDate } from "@/domain/dates";
 import { hasActiveFilters, ordersHref, type OrdersQuery, type SortField } from "@/domain/orders-query";
 import { isOpen } from "@/domain/status";
 import { formatMoney } from "@/domain/money";
 import { getOrdersPage } from "@/server/queries";
+import { dueLabel } from "./due-label";
 import { Pagination } from "./pagination";
 
 /** "ARS 8,009,750.00" into the currency code and the number, so the code can be set small. */
@@ -24,6 +25,7 @@ function SortHeader({ query, field, children, align }: { query: OrdersQuery; fie
   return (
     <Th
       scope="col"
+      role="columnheader"
       aria-sort={active ? (query.dir === "asc" ? "ascending" : "descending") : undefined}
       className={align === "right" ? "text-right" : undefined}
     >
@@ -60,10 +62,14 @@ export async function OrdersTable({ query: queryPromise }: { query: Promise<Orde
   return (
     <>
       <Table caption={`Orders, ${from} to ${to} of ${result.total}`} cards>
-        <thead className="max-sm:sr-only">
-          <tr>
-            <Th scope="col">Order</Th>
-            <Th scope="col">Stage</Th>
+        <thead role="rowgroup" className="max-sm:sr-only max-sm:focus-within:not-sr-only">
+          <tr role="row">
+            <Th scope="col" role="columnheader">
+              Order
+            </Th>
+            <Th scope="col" role="columnheader">
+              Stage
+            </Th>
             <SortHeader query={query} field="dueDate">
               Due
             </SortHeader>
@@ -72,7 +78,7 @@ export async function OrdersTable({ query: queryPromise }: { query: Promise<Orde
             </SortHeader>
           </tr>
         </thead>
-        <tbody className="max-sm:space-y-3 max-sm:p-4">
+        <tbody role="rowgroup" className="max-sm:space-y-3 max-sm:p-4">
           {result.rows.map((row) => {
             const late = isOpen(row.status) && row.dueDate < BUSINESS_TODAY;
             const urgent = row.priority === "urgent";
@@ -81,29 +87,29 @@ export async function OrdersTable({ query: queryPromise }: { query: Promise<Orde
             return (
               <tr
                 key={row.id}
+                role="row"
                 className={cn(
                   "hover:bg-surface-muted/60",
                   "max-sm:block max-sm:rounded-xl max-sm:border max-sm:border-border max-sm:bg-surface max-sm:p-4 max-sm:hover:bg-surface",
                 )}
               >
-                <Td className="min-w-0 max-sm:block max-sm:border-0 max-sm:p-0 sm:min-w-44">
+                <Td role="cell" className="min-w-0 max-sm:block max-sm:border-0 max-sm:p-0 sm:min-w-44">
                   <div className="font-semibold break-words text-text">{row.customerName}</div>
                   <Link href={`/orders/${row.id}`} className="font-mono text-xs text-accent hover:underline">
                     {row.id}
                   </Link>
                   <span className="text-xs text-muted"> · {row.town}</span>
                 </Td>
-                <Td className="max-sm:mt-3 max-sm:block max-sm:border-0 max-sm:p-0">
+                <Td role="cell" className="max-sm:mt-3 max-sm:block max-sm:border-0 max-sm:p-0">
                   <StageBar status={row.status} size="sm" />
                 </Td>
-                <Td className="whitespace-nowrap max-sm:mt-1.5 max-sm:block max-sm:border-0 max-sm:p-0">
+                <Td role="cell" className="whitespace-nowrap max-sm:mt-1.5 max-sm:whitespace-normal max-sm:block max-sm:border-0 max-sm:p-0">
                   <span className="tabular">{formatDate(row.dueDate)}</span>
                   <span className={cn("ml-2 text-xs", flagged ? "font-medium text-signal-ink" : "text-muted")}>
-                    {urgent ? "Urgent · " : ""}
-                    {isOpen(row.status) ? formatDueRelative(row.dueDate, BUSINESS_TODAY) : ""}
+                    {dueLabel(row, BUSINESS_TODAY)}
                   </span>
                 </Td>
-                <Td className="text-right max-sm:mt-3 max-sm:block max-sm:border-0 max-sm:border-t max-sm:border-border max-sm:p-0 max-sm:pt-3 max-sm:text-left">
+                <Td role="cell" className="text-right max-sm:mt-3 max-sm:block max-sm:border-0 max-sm:border-t max-sm:border-border max-sm:p-0 max-sm:pt-3 max-sm:text-left">
                   <span className="display tabular text-[22px] leading-none whitespace-nowrap">
                     <span className="mr-1 text-xs font-medium text-muted">{currency}</span>
                     {amount}

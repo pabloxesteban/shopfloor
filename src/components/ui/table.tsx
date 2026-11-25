@@ -20,7 +20,11 @@ export function Table({
   return (
     // Focusable so keyboard users can scroll the table sideways on small screens.
     <div className="overflow-x-auto" tabIndex={0} role="group" aria-label={caption}>
-      <table className={cn("w-full border-collapse text-sm", cards && "max-sm:block [&_tbody]:max-sm:block", className)}>
+      <table
+        // display:block drops native table semantics in some browsers, so card tables state them.
+        role={cards ? "table" : undefined}
+        className={cn("w-full border-collapse text-sm", cards && "max-sm:block [&_tbody]:max-sm:block", className)}
+      >
         <caption className="sr-only">{caption}</caption>
         {children}
       </table>
