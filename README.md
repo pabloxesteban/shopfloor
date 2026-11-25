@@ -14,9 +14,13 @@ An operations dashboard for Frame & Pane Co., a small aluminum window and door w
 | --- | --- |
 | ![Order detail and edit form showing an inline error](docs/screenshots/order-detail.png) | ![Stock screen with the low stock count, materials table and low stock chart](docs/screenshots/stock.png) |
 
-| Import, demo mode | Phone |
+| Import, choosing a sample | Phone |
 | --- | --- |
-| ![Import page saying no recorded response exists yet](docs/screenshots/import-demo.png) | ![Orders on a 375 px wide screen, each order shown as a card](docs/screenshots/orders-mobile.png) |
+| ![Import page listing the 12 sample quotes, each marked as recorded](docs/screenshots/import-demo.png) | ![Orders on a 375 px wide screen, each order shown as a card](docs/screenshots/orders-mobile.png) |
+
+| Import, review screen |
+| --- |
+| ![Review screen with the extracted quote next to the document details, a confidence label on every field and the Import to stock button](docs/screenshots/import-review.png) |
 
 Screenshots are taken from the production build with `pnpm screenshots`.
 
@@ -87,21 +91,21 @@ The first time, install the browser with `pnpm exec playwright install chromium`
 4. The review screen highlights fields with confidence under 0.8. Each one must be corrected or ticked as checked. The server checks this too.
 5. On confirm, lines are matched to the catalog by SKU and unit and added to incoming stock. The summary lists matched and unmatched lines and links to `/stock`.
 
-The model id comes from `GEMINI_MODEL`, with a default set in `extract-quote.ts`. Live extraction is limited to 5 requests per 10 minutes per IP (in memory, best effort).
+The model is `gemini-3.6-flash`. The id comes from `GEMINI_MODEL`, with that default set in `extract-quote.ts`. Live extraction is limited to 5 requests per 10 minutes per IP (in memory, best effort).
 
-**Demo mode.** Without `GEMINI_API_KEY`, only the bundled samples can be imported and the result is replayed from `fixtures/recorded/<sample>.json`, shown with a "Demo mode · recorded response" badge. Those files must contain real model responses, saved by:
+**Demo mode.** Without `GEMINI_API_KEY`, only the bundled samples can be imported. The app replays 12 real responses from `gemini-3.6-flash`, one per sample, saved in `fixtures/recorded/<sample>.json` and shown with a "Demo mode · recorded response" badge. Each one passed validation on the first attempt. The replay runs through the same validation code as a live call. The files were saved by this command and are never edited by hand:
 
 ```bash
 GEMINI_API_KEY=... pnpm ai:record
 ```
 
-**Status: no recordings exist yet.** The project was built without an API key, so `fixtures/recorded/` is empty and demo mode says "No recorded response for this sample yet" for every sample. That is intended: responses are never written by hand.
-
 **Samples.** `pnpm samples` regenerates the 12 sample PDFs (`public/samples/`) and their ground truth (`fixtures/truth/`) from `scripts/sample-quotes.ts`. They cover a clean table, a bulleted list, a typewriter layout, US dollars, a discount line, a line without SKU, an unknown SKU, a quote without a number, a date written in words, prices without decimals, an informal note and a unit that does not match the catalog.
 
-### Eval results (pending first run)
+### Eval results
 
-TODO: run `GEMINI_API_KEY=... pnpm ai:eval`. It scores every extracted field against the ground truth (numbers compared after rounding to cents, text after normalizing case, accents and punctuation) and writes per-field accuracy and every failure to `evals/results.md`. No numbers are reported here until that run exists. `pnpm ai:eval --recorded` scores saved recordings without calling the API.
+`pnpm ai:eval --recorded` scores the saved recordings against the ground truth for each sample (numbers compared after rounding to cents, text after normalizing case, accents and punctuation). Result: **99.7% of 307 fields correct across the 12 sample quotes** (306 of 307).
+
+The one miss is a real model error. On the long Vidriería Tres Lomas quote, the model returned the supplier name as "Vidrier%C3%A1 Tres Lomas", with the accent written as URL-encoded characters, and still rated it 99% confident. That is why the review screen shows every extracted value for a person to compare, and not only the low-confidence ones. Per-field accuracy and every failure are in `evals/results.md`. `pnpm ai:eval` runs the same scoring against the live API when a key is set.
 
 ## Running locally
 
