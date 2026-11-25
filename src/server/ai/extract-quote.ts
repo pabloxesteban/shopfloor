@@ -4,7 +4,7 @@ import { SupplierQuoteSchema, type SupplierQuote } from "@/domain/supplier-quote
 import { toModelJsonSchema } from "./json-schema";
 import { EXTRACTION_PROMPT, retryPrompt } from "./prompt";
 
-export const DEFAULT_GEMINI_MODEL = "gemini-3.8-flash";
+export const DEFAULT_GEMINI_MODEL = "gemini-3.6-flash";
 
 export const ACCEPTED_MIME_TYPES = ["application/pdf", "image/png", "image/jpeg"] as const;
 export type QuoteMimeType = (typeof ACCEPTED_MIME_TYPES)[number];
