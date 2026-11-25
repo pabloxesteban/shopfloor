@@ -41,6 +41,7 @@ async function main() {
     const result = await extractWith(generate, { data, mimeType: "application/pdf" });
     if (result.responses.length === 0) {
       console.log(`${sample.id}: no response (${result.ok ? "" : result.message}), nothing recorded`);
+      if (!result.ok) for (const problem of result.problems) console.log(`  ${problem}`);
       continue;
     }
     const recording: Recording = {
