@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import { STATUS_LABELS, type OrderStatus } from "@/domain/status";
+import type { OrderStatus } from "@/domain/status";
 import { cn } from "./cn";
+import { StageBar } from "./stage-bar";
 
 type Tone = "neutral" | "accent" | "danger" | "warning" | "success";
 
@@ -26,14 +27,9 @@ export function Badge({ tone = "neutral", className, children }: { tone?: Tone; 
   );
 }
 
-/** Status is shown as text with a colored dot. The color is a hint, the text is the signal. */
+/** Kept so existing imports compile; status is now the stage bar. */
 export function StatusBadge({ status }: { status: OrderStatus }) {
-  return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2 py-0.5 text-xs font-medium whitespace-nowrap text-text">
-      <span aria-hidden="true" className="size-2 rounded-full" style={{ background: "var(--text-muted)" }} />
-      {STATUS_LABELS[status]}
-    </span>
-  );
+  return <StageBar status={status} size="sm" />;
 }
 
 export function PriorityBadge({ priority }: { priority: "normal" | "urgent" }) {

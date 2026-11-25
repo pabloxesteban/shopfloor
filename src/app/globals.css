@@ -147,6 +147,10 @@ body {
   outline-offset: 2px;
 }
 
+.brand-band :focus-visible {
+  outline-color: var(--signal);
+}
+
 .tabular {
   font-variant-numeric: tabular-nums;
 }

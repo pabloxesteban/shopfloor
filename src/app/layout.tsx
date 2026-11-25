@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
 import { ConceptBadge } from "@/components/concept-badge";
+import { MobileTabBar } from "@/components/mobile-tab-bar";
 import { NavLinks } from "@/components/nav-links";
 import { ThemeToggle, themeScript } from "@/components/theme-toggle";
+import { buttonClasses } from "@/components/ui/button";
 import { BUSINESS_TODAY, formatDate } from "@/domain/dates";
 import "./globals.css";
 
@@ -29,25 +31,30 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-        <header className="border-b border-border bg-surface">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
-            <Link href="/orders" className="flex items-baseline gap-2">
-              <span className="text-base font-semibold tracking-tight text-text">Shopfloor</span>
-              <span className="hidden text-xs text-muted sm:inline">Frame &amp; Pane Co.</span>
+        <header className="brand-band bg-brand text-brand-fg">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-1 px-4 py-3 sm:px-6">
+            <Link href="/orders" className="flex items-baseline gap-3">
+              <span className="display text-[28px] leading-none">Shopfloor</span>
+              <span className="hidden text-sm text-brand-muted sm:inline">Frame &amp; Pane Co.</span>
             </Link>
-            <nav aria-label="Main" className="order-3 w-full sm:order-none sm:w-auto">
+            <nav aria-label="Main" className="hidden sm:block">
               <NavLinks />
             </nav>
-            <div className="ml-auto flex items-center gap-2">
+            <div className="order-last w-full sm:order-none sm:ml-auto sm:w-auto">
               <ConceptBadge />
+            </div>
+            <div className="ml-auto flex items-center gap-3 sm:ml-0">
               <ThemeToggle />
+              <Link href="/imports/new" className={`${buttonClasses({ variant: "signal" })} hidden sm:inline-flex`}>
+                Import supplier quote
+              </Link>
             </div>
           </div>
         </header>
         <main id="main" className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 sm:py-8">
           {children}
         </main>
-        <footer className="border-t border-border">
+        <footer className="border-t border-border pb-20 sm:pb-0">
           <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 py-4 text-xs text-muted sm:px-6">
             <p>Frame &amp; Pane Co. is a fictional workshop. All names, orders and numbers are generated.</p>
             <p>
@@ -55,6 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </p>
           </div>
         </footer>
+        <MobileTabBar />
       </body>
     </html>
   );

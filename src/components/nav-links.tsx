@@ -8,7 +8,6 @@ import { cn } from "./ui/cn";
 const LINKS = [
   { href: "/orders", label: "Orders" },
   { href: "/stock", label: "Stock" },
-  { href: "/imports/new", label: "Import quote" },
 ] as const;
 
 function NavList({ pathname }: { pathname?: string }) {
@@ -22,8 +21,8 @@ function NavList({ pathname }: { pathname?: string }) {
               href={link.href}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "inline-flex h-8 items-center rounded-md px-2.5 text-sm font-medium",
-                active ? "bg-accent-soft text-accent" : "text-muted hover:bg-surface-muted hover:text-text",
+                "inline-flex h-9 items-center rounded-lg px-3 text-sm font-medium transition-colors duration-150",
+                active ? "bg-brand-2 text-brand-fg" : "text-brand-muted hover:bg-brand-2/60 hover:text-brand-fg",
               )}
             >
               {link.label}

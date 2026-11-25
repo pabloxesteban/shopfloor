@@ -57,7 +57,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={cycle}
-      className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border px-2.5 text-xs font-medium text-muted hover:bg-surface-muted hover:text-text"
+      className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-brand-muted/40 px-2.5 text-xs font-medium text-brand-muted transition-colors duration-150 hover:bg-brand-2 hover:text-brand-fg"
     >
       <span aria-hidden="true">{theme === "dark" ? "☾" : theme === "light" ? "☀" : "◐"}</span>
       <span>
