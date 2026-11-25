@@ -1,26 +1,146 @@
 @import "tailwindcss";
 
+/*
+ * Colors are semantic tokens. Components never pick raw colors, so light and
+ * dark mode only differ here. The theme follows the system unless the user
+ * picks one with the toggle (stored as data-theme on <html>).
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-muted: #f1f3f5;
+  --border: #e1e4e8;
+  --border-strong: #c9ced4;
+  --text: #17191c;
+  --text-muted: #5b636d;
+  --accent: #0b6e6e;
+  --accent-hover: #095a5a;
+  --accent-fg: #ffffff;
+  --accent-soft: #e3f2f1;
+  --focus: #0b6e6e;
+  --danger: #b42318;
+  --danger-soft: #fdecea;
+  --warning: #8a5a00;
+  --warning-soft: #fff4dc;
+  --success: #1d6b3a;
+  --success-soft: #e6f4ea;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --st-quote: #7a8591;
+  --st-confirmed: #3a6fb0;
+  --st-in_production: #b7791f;
+  --st-ready: #2f855a;
+  --st-delivered: #4a5568;
+  --st-cancelled: #b42318;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1113;
+    --surface: #171a1d;
+    --surface-muted: #1f2327;
+    --border: #2a2f35;
+    --border-strong: #3a4148;
+    --text: #e8eaed;
+    --text-muted: #9aa3ad;
+    --accent: #4fc1b8;
+    --accent-hover: #6fd0c8;
+    --accent-fg: #062523;
+    --accent-soft: #12302e;
+    --focus: #4fc1b8;
+    --danger: #f2877d;
+    --danger-soft: #3a1714;
+    --warning: #f0c060;
+    --warning-soft: #33280f;
+    --success: #7fcf9b;
+    --success-soft: #13291b;
+
+    --st-quote: #9aa3ad;
+    --st-confirmed: #7aa7e0;
+    --st-in_production: #e0b060;
+    --st-ready: #72c493;
+    --st-delivered: #b4bcc6;
+    --st-cancelled: #f2877d;
   }
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1113;
+  --surface: #171a1d;
+  --surface-muted: #1f2327;
+  --border: #2a2f35;
+  --border-strong: #3a4148;
+  --text: #e8eaed;
+  --text-muted: #9aa3ad;
+  --accent: #4fc1b8;
+  --accent-hover: #6fd0c8;
+  --accent-fg: #062523;
+  --accent-soft: #12302e;
+  --focus: #4fc1b8;
+  --danger: #f2877d;
+  --danger-soft: #3a1714;
+  --warning: #f0c060;
+  --warning-soft: #33280f;
+  --success: #7fcf9b;
+  --success-soft: #13291b;
+
+  --st-quote: #9aa3ad;
+  --st-confirmed: #7aa7e0;
+  --st-in_production: #e0b060;
+  --st-ready: #72c493;
+  --st-delivered: #b4bcc6;
+  --st-cancelled: #f2877d;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

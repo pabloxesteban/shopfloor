@@ -1,4 +1,4 @@
-import type { Material, MaterialCategory, MaterialUnit } from "@/domain/material";
+import type { MaterialCategory, MaterialUnit } from "@/domain/material";
 
 type CatalogEntry = [sku: string, name: string, category: MaterialCategory, unit: MaterialUnit];
 
