@@ -27,3 +27,32 @@ for (const path of pages) {
     expect(overflow).toBeLessThanOrEqual(0);
   });
 }
+
+test("keyboard focus is visible on the dark brand band", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/orders");
+  for (let i = 0; i < 4; i++) {
+    await page.keyboard.press("Tab");
+    if (await page.evaluate(() => !!document.activeElement?.closest(".brand-band"))) break;
+  }
+  const focused = page.locator(".brand-band a:focus-visible").first();
+  await expect(focused).toBeVisible();
+  const outline = await focused.evaluate((el) => getComputedStyle(el).outlineColor);
+  expect(outline).toBe("rgb(245, 177, 61)");
+});
+
+test("mobile tab bar is visible and never covers the end of the content", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/orders");
+  const bar = page.getByRole("navigation", { name: "Main mobile" });
+  await expect(bar).toBeVisible();
+  // Generic on purpose: the last order link, whether rows are table rows or cards.
+  const last = page.locator('main a[href^="/orders/ORD-"]').last();
+  await last.scrollIntoViewIfNeeded();
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  const rowBox = await last.boundingBox();
+  const barBox = await bar.boundingBox();
+  expect(rowBox).not.toBeNull();
+  expect(barBox).not.toBeNull();
+  expect(rowBox!.y + rowBox!.height).toBeLessThanOrEqual(barBox!.y);
+});
