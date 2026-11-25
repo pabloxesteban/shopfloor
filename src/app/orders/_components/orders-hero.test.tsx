@@ -45,7 +45,7 @@ describe("OrdersHero", () => {
 
   it("shows the secondary figures", () => {
     render(<OrdersHero kpis={kpis()} weeks={weeks} />);
-    expect(screen.getByText("ARS 21.2M")).toBeInTheDocument();
+    expect(screen.getByText("Booked this month").previousElementSibling).toHaveTextContent("ARS 21.2M");
     expect(screen.getByText("Open orders")).toBeInTheDocument();
     expect(screen.getByText("Due this week")).toBeInTheDocument();
     expect(screen.getByText("Booked this month")).toBeInTheDocument();

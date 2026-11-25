@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { buttonClasses } from "@/components/ui/button";
 import { cn } from "@/components/ui/cn";
+import { Money } from "@/components/ui/money";
 import { StageBar } from "@/components/ui/stage-bar";
 import { Table, Td, Th } from "@/components/ui/table";
 import { BUSINESS_TODAY, formatDate } from "@/domain/dates";
@@ -10,12 +11,6 @@ import { formatMoney } from "@/domain/money";
 import { getOrdersPage } from "@/server/queries";
 import { dueLabel } from "./due-label";
 import { Pagination } from "./pagination";
-
-/** "ARS 8,009,750.00" into the currency code and the number, so the code can be set small. */
-function splitMoney(formatted: string): [string, string] {
-  const [currency = "", ...rest] = formatted.split(/\s|\u00a0/);
-  return [currency, rest.join(" ")];
-}
 
 function SortHeader({ query, field, children, align }: { query: OrdersQuery; field: SortField; children: string; align?: "right" }) {
   const active = query.sort === field;
@@ -83,7 +78,6 @@ export async function OrdersTable({ query: queryPromise }: { query: Promise<Orde
             const late = isOpen(row.status) && row.dueDate < BUSINESS_TODAY;
             const urgent = row.priority === "urgent";
             const flagged = late || urgent;
-            const [currency, amount] = splitMoney(formatMoney(row.totalCents));
             return (
               <tr
                 key={row.id}
@@ -110,10 +104,7 @@ export async function OrdersTable({ query: queryPromise }: { query: Promise<Orde
                   </span>
                 </Td>
                 <Td role="cell" className="text-right max-sm:mt-3 max-sm:block max-sm:border-0 max-sm:border-t max-sm:border-border max-sm:p-0 max-sm:pt-3 max-sm:text-left">
-                  <span className="display tabular text-[22px] leading-none whitespace-nowrap">
-                    <span className="mr-1 text-xs font-medium text-muted">{currency}</span>
-                    {amount}
-                  </span>
+                  <Money value={formatMoney(row.totalCents)} className="display tabular text-[22px] leading-none" />
                 </Td>
               </tr>
             );

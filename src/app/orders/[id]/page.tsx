@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BrandBand } from "@/components/brand-band";
 import { Card, CardHeader } from "@/components/ui/card";
+import { Money } from "@/components/ui/money";
 import { StageBar } from "@/components/ui/stage-bar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { BUSINESS_TODAY, formatDate } from "@/domain/dates";
@@ -55,7 +56,9 @@ async function OrderDetail({ params }: { params: PageProps<"/orders/[id]">["para
             </div>
           </div>
           <div className="sm:text-right">
-            <p className="display tabular text-[56px] leading-none">{formatMoney(orderTotalCents(order.items))}</p>
+            <p className="display tabular text-4xl leading-none sm:text-[56px]">
+              <Money value={formatMoney(orderTotalCents(order.items))} />
+            </p>
             <p className="mt-1.5 text-sm text-brand-muted">Order total</p>
           </div>
         </div>

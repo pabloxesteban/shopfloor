@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Money } from "@/components/ui/money";
 import { BUSINESS_TODAY } from "@/domain/dates";
 import type { OrderKpis, WeekBucket } from "@/domain/kpis";
 import type { Cents } from "@/domain/money";
@@ -14,10 +15,10 @@ export function compactMoney(cents: Cents): string {
   return `ARS ${compact.format(amount)}`;
 }
 
-function Secondary({ label, value, href }: { label: string; value: string; href?: string }) {
+function Secondary({ label, value, href, money }: { label: string; value: string; href?: string; money?: boolean }) {
   const body = (
     <>
-      <span className="display tabular block text-2xl leading-none sm:text-3xl">{value}</span>
+      <span className="display tabular block text-2xl leading-none sm:text-3xl">{money ? <Money value={value} /> : value}</span>
       <span className="mt-1.5 block text-sm text-brand-muted">{label}</span>
     </>
   );
@@ -61,7 +62,7 @@ export function OrdersHero({ kpis, weeks }: { kpis: OrderKpis; weeks: WeekBucket
         <div className="mt-8 grid grid-cols-3 gap-4 border-t border-brand-muted/25 pt-5">
           <Secondary label="Open orders" value={String(kpis.openOrders)} />
           <Secondary label="Due this week" value={String(kpis.dueThisWeek)} href={thisWeekHref} />
-          <Secondary label="Booked this month" value={compactMoney(kpis.revenueThisMonth)} />
+          <Secondary label="Booked this month" value={compactMoney(kpis.revenueThisMonth)} money />
         </div>
       </div>
       <WeeklyChart weeks={weeks} />
