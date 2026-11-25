@@ -47,20 +47,17 @@ function StockFilters({ query }: { query: StockQuery }) {
   );
 }
 
+async function StockHeroFigure() {
+  const lowItems = await getMaterials({ lowOnly: true });
+  return <StockHero lowCount={lowItems.length} />;
+}
+
 async function StockContent({ searchParams }: { searchParams: PageProps<"/stock">["searchParams"] }) {
   const query = parseStockQuery(await searchParams);
   const [materials, lowItems] = await Promise.all([getMaterials(query), getMaterials({ lowOnly: true })]);
 
   return (
-    <>
-      <BrandBand label="Stock overview">
-        <h1 className="display text-2xl sm:text-3xl">Stock</h1>
-        <p className="mt-1 mb-8 text-sm text-brand-muted">
-          Aluminum profiles, glass and hardware. Available means on hand minus reserved.
-        </p>
-        <StockHero lowCount={lowItems.length} />
-      </BrandBand>
-      <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
+    <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
       <Card aria-label="Materials" className="min-w-0 xl:col-span-2">
         <StockFilters query={query} />
         <MaterialsTable materials={materials} />
@@ -75,15 +72,25 @@ async function StockContent({ searchParams }: { searchParams: PageProps<"/stock"
           <LowStockChart materials={lowItems} />
         </div>
       </Card>
-      </div>
-    </>
+    </div>
   );
 }
 
 export default function StockPage({ searchParams }: PageProps<"/stock">) {
   return (
-    <Suspense fallback={<Skeleton className="h-96 rounded-lg" />}>
-      <StockContent searchParams={searchParams} />
-    </Suspense>
+    <>
+      <BrandBand label="Stock overview">
+        <h1 className="display text-2xl sm:text-3xl">Stock</h1>
+        <p className="mt-1 mb-8 text-sm text-brand-muted">
+          Aluminum profiles, glass and hardware. Available means on hand minus reserved.
+        </p>
+        <Suspense fallback={<Skeleton className="h-20 rounded-lg" />}>
+          <StockHeroFigure />
+        </Suspense>
+      </BrandBand>
+      <Suspense fallback={<Skeleton className="h-96 rounded-lg" />}>
+        <StockContent searchParams={searchParams} />
+      </Suspense>
+    </>
   );
 }
