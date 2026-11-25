@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { connection } from "next/server";
 import { Suspense } from "react";
-import { PageHeader } from "@/components/page-header";
+import { BrandBand } from "@/components/brand-band";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CONFIDENCE_THRESHOLD } from "@/domain/supplier-quote";
@@ -17,7 +17,10 @@ async function ImportWorkspace() {
   await connection();
   const live = isLiveExtractionConfigured();
   const samples = await Promise.all(
-    SAMPLE_QUOTES.map(async (s) => ({ ...s, hasRecording: (await loadRecording(s.id)) !== undefined })),
+    SAMPLE_QUOTES.map(async (s) => ({
+      ...s,
+      hasRecording: (await loadRecording(s.id)) !== undefined,
+    })),
   );
   return (
     <>
@@ -42,10 +45,12 @@ async function ImportWorkspace() {
 export default function ImportPage() {
   return (
     <>
-      <PageHeader
-        title="Import supplier quote"
-        description={`The server reads the quote with an AI model and returns each field with a confidence score. Fields under ${Math.round(CONFIDENCE_THRESHOLD * 100)}% are flagged and must be checked before anything reaches stock.`}
-      />
+      <BrandBand label="Import supplier quote">
+        <h1 className="display text-2xl sm:text-3xl">Import supplier quote</h1>
+        <p className="mt-1 max-w-2xl text-sm text-brand-muted">
+          {`The server reads the quote with an AI model and returns each field with a confidence score. Fields under ${Math.round(CONFIDENCE_THRESHOLD * 100)}% are flagged and must be checked before anything reaches stock.`}
+        </p>
+      </BrandBand>
       <Suspense fallback={<Skeleton className="h-96 rounded-lg" />}>
         <ImportWorkspace />
       </Suspense>

@@ -65,13 +65,14 @@ export function SourcePicker({ live, samples, action, pending, state }: SourcePi
                       rel="noreferrer"
                       className="mt-1 inline-block text-xs text-accent hover:underline"
                     >
-                      Open PDF<span className="sr-only">: {sample.label} (opens in a new tab)</span>
+                      Open PDF
+                      <span className="sr-only">: {sample.label} (opens in a new tab)</span>
                     </a>
                   </li>
                 ))}
               </ul>
             </fieldset>
-            <Button type="submit" variant="primary" className="mt-4" disabled={pending}>
+            <Button type="submit" variant="signal" className="mt-4" disabled={pending}>
               {pending ? "Reading the quote..." : "Extract selected sample"}
             </Button>
           </form>

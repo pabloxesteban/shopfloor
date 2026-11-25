@@ -25,7 +25,7 @@ function Flow({ live, samples, onRestart }: { live: boolean; samples: SampleOpti
 
   if (extracted.status === "review") {
     return (
-      <Card className="px-4 py-5 sm:px-5">
+      <>
         <ReviewForm
           importId={extracted.importId}
           quote={extracted.quote}
@@ -39,7 +39,7 @@ function Flow({ live, samples, onRestart }: { live: boolean; samples: SampleOpti
           error={confirmed.status === "error" ? confirmed.message : undefined}
           onCancel={onRestart}
         />
-      </Card>
+      </>
     );
   }
 
