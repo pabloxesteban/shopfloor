@@ -71,9 +71,7 @@ Charts are plain SVG and HTML instead of a chart library. There are two small ch
 | Unit | Vitest | Pricing, status transitions, stock math, KPIs, dates, zod schemas, URL query parsing, seed data and repository filtering, sorting and paging, line matching, rate limiter, eval scorer, JSON schema conversion |
 | Integration | Vitest | Extraction validation and retry with the Gemini SDK mocked (valid answer, retry with errors in the prompt, second failure, SDK error, missing key), replay of recordings |
 | Component | Vitest + Testing Library | Filter bar writes the right URLs (status, priority, sort, debounced search, clear); review form flags low-confidence fields and blocks import until they are checked |
-| End to end | Playwright (Chromium) | Filter orders and check URL and rows, reload keeps filters, back undoes; search, sort and paging; edit an order, hit a validation error, fix it, save and see the new total; legal status change; cancel with a confirmation dialog; demo import without recordings; axe checks on every page in light and dark mode; no horizontal scroll at 360 px |
-
-The end-to-end test for a full import from a recorded response is skipped until real recordings exist (see below).
+| End to end | Playwright (Chromium) | Filter orders and check URL and rows, reload keeps filters, back undoes; search, sort and paging; edit an order, hit a validation error, fix it, save and see the new total; legal status change; cancel with a confirmation dialog; demo import from a recorded response, start to finish; axe checks on every page in light and dark mode; no horizontal scroll at 360 px |
 
 ```bash
 pnpm typecheck
@@ -126,7 +124,7 @@ Open http://localhost:3000. Without a key the app runs in demo mode.
 - **Data lives in memory.** It is generated on start and every change (edits, status changes, imports) is lost when the server restarts. It also cannot be shared between server instances. A database would sit behind the same repository interface; that is not built.
 - **No authentication or roles.** Anyone who can reach the app can change data.
 - **The rate limit is best effort.** It is per process and resets on restart.
-- **AI results are unverified.** No recordings or eval runs exist yet, and the response schema has not been tested against the live API.
+- **AI results are measured on 12 sample quotes only** (see Eval results). Real supplier quotes may do worse.
 - **Confidence scores are self-reported by the model**, not calibrated probabilities.
 - **Fictional data only.** Names, towns, prices and suppliers are generated or invented. Phone numbers use a range that is not assigned and email addresses use the reserved `.example` domain.
 - The date is fixed to 18 Nov 2026 so KPIs and tests do not drift.
